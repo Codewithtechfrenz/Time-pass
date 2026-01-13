@@ -1,0 +1,360 @@
+/* =============================
+      REVIEW SECTION CSS
+=================================*/
+
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&display=swap');
+
+/* ===============================
+   SECTION
+================================ */
+.review-section {
+  padding: 120px 20px;
+  background: #080e1a;
+  font-family: "Figtree", sans-serif;
+  overflow: hidden;
+}
+
+.review-wrapper {
+  max-width: 1300px;
+  margin: auto;
+  text-align: center;
+}
+
+/* ===============================
+   HEADING
+================================ */
+.review-heading {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  font-family: "Figtree", sans-serif;
+  color: #ffffff;
+}
+
+.review-heading span {
+  color: #ffbe31;
+  font-family: "Figtree", sans-serif;
+}
+
+.review-subheading {
+  font-size: 16px;
+  color: #ffffff;
+  margin-bottom: 24px;
+  font-family: "Figtree", sans-serif;
+}
+
+.review-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #f2f2f2;
+  color: #7B542F;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 14px;
+  margin-bottom: 60px;
+  font-family: "Figtree", sans-serif;
+}
+
+/* ===============================
+   FADE IN DOWN (ON SCROLL)
+================================ */
+.review-heading,
+.review-subheading,
+.review-rating {
+  opacity: 0;
+  transform: translateY(-30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* When visible */
+.review-heading.show,
+.review-subheading.show,
+.review-rating.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered animation timing */
+.review-subheading.show {
+  transition-delay: 0.15s;
+}
+
+.review-rating.show {
+  transition-delay: 0.3s;
+}
+
+
+/* ===============================
+   GRID
+================================ */
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+/* ===============================
+   COLUMN
+================================ */
+.review-column {
+  height: 800px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ===============================
+   TRACK (DEFAULT)
+================================ */
+.review-track {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ===============================
+   COLUMN-WISE ANIMATION
+================================ */
+
+/* First Column – Scroll Up */
+.review-column:nth-child(1) .review-track {
+  animation: scrollUp 26s linear infinite;
+}
+
+/* Second Column – Scroll Down */
+.review-column:nth-child(2) .review-track {
+  animation: scrollDown 28s linear infinite;
+}
+
+/* Third Column – Scroll Up (slower for depth) */
+.review-column:nth-child(3) .review-track {
+  animation: scrollUp 32s linear infinite;
+}
+
+/* ===============================
+   CARD
+================================ */
+.review-card {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  text-align: left;
+   background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.review-card p {
+  font-size: 14px;
+  color: #ffe95a;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  font-weight: 700;
+  font-family: "Figtree", sans-serif;
+}
+
+.review-user strong {
+  display: block;
+  font-size: 14px;
+  font-family: "Figtree", sans-serif;
+  color: #ffffff;
+}
+
+.review-user span {
+  font-size: 12px;
+  color: #ffffff;
+  font-family: "Figtree", sans-serif;
+}
+
+/* ===============================
+   AVATAR
+================================ */
+.review-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.review-user img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #f2f2f2;
+}
+
+/* ===============================
+   PAUSE ANIMATION ON HOVER
+================================ */
+.review-column:hover .review-track {
+  animation-play-state: paused;
+}
+
+/* Card hover interaction */
+.review-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.review-card:hover {
+  /* transform: translateY(-4px) scale(1.02); */
+  box-shadow: 0 14px 32px rgba(0,0,0,0.14);
+  cursor: pointer;
+}
+
+
+/* ===============================
+   ANIMATION KEYFRAMES
+================================ */
+@keyframes scrollUp {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes scrollDown {
+  0% {
+    transform: translateY(-50%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* ===============================
+   PERFORMANCE OPTIMIZATION
+================================ */
+
+/* GPU acceleration for smooth scrolling */
+.review-track {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* Prevent layout thrashing */
+.review-column {
+  contain: layout paint;
+}
+
+/* Reduce motion preference support */
+@media (prefers-reduced-motion: reduce) {
+  .review-column .review-track {
+    animation: none !important;
+  }
+}
+
+
+/* ===============================
+   RESPONSIVE – MOBILE (PHONES)
+================================ */
+@media (max-width: 640px) {
+  .review-section {
+    padding: 80px 16px;
+  }
+
+  .review-heading {
+    font-size: 28px;
+    line-height: 1.3;
+  }
+
+  .review-subheading {
+    font-size: 14px;
+  }
+
+  .review-rating {
+    font-size: 13px;
+    margin-bottom: 40px;
+  }
+
+  .review-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .review-column {
+    height: 420px;
+  }
+
+  .review-card {
+    padding: 20px;
+  }
+
+  .review-card p {
+    font-size: 13px;
+  }
+
+  .review-user img {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* ===============================
+   RESPONSIVE – TABLET
+================================ */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .review-section {
+    padding: 100px 24px;
+  }
+
+  .review-heading {
+    font-size: 36px;
+  }
+
+  .review-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  .review-column {
+    height: 560px;
+  }
+
+  .review-card {
+    padding: 24px;
+  }
+}
+
+/* ===============================
+   RESPONSIVE – LAPTOP
+================================ */
+@media (min-width: 1025px) and (max-width: 1366px) {
+  .review-heading {
+    font-size: 42px;
+  }
+
+  .review-column {
+    height: 700px;
+  }
+
+  .review-grid {
+    gap: 36px;
+  }
+}
+
+/* ===============================
+   RESPONSIVE – DESKTOP / LARGE SCREENS
+================================ */
+@media (min-width: 1367px) {
+  .review-section {
+    padding: 140px 20px;
+  }
+
+  .review-heading {
+    font-size: 52px;
+  }
+
+  .review-column {
+    height: 820px;
+  }
+
+  .review-card {
+    padding: 32px;
+  }
+}

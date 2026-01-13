@@ -1,0 +1,256 @@
+/* ========================================
+     SERVICE SECTION
+=============================================*/
+
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&display=swap');
+
+/* GLOBAL */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ================================
+   MAIN SECTION
+================================ */
+.workplace-service-section {
+  padding: 90px 20px;
+  background: #fff2b7;
+  border-radius: 20px;
+  margin: 50px;
+}
+
+/* ================================
+   WORKPLACE INTRO
+================================ */
+.workplace-wrapper {
+  max-width: 1100px;
+  margin: 0 auto 80px;
+  text-align: center;
+}
+
+.workplace-heading {
+  font-size: 48px;
+  font-weight: 700;
+  color: #111;
+  font-family: "Figtree", sans-serif;
+  margin-bottom: 30px;
+}
+
+.workplace-subheading {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #313131;
+  margin-bottom: -30px;
+  font-family: "Figtree", sans-serif;
+}
+
+/* ================================
+   DELIVERY SECTION
+================================ */
+.delivery-wrapper {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 150px;
+  align-items: center;
+}
+
+/* LEFT CONTENT */
+.delivery-content {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  margin-right: -20px;
+  margin-top: 20px;
+}
+
+.delivery-item {
+  display: flex;
+  gap: 25px;
+  align-items: flex-start;
+}
+
+.delivery-icon {
+  font-size: 28px;
+  color: #7B542F;
+  flex-shrink: 0;
+  margin-top: 30px;
+}
+
+.delivery-item h4 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #111;
+  font-family: "Figtree", sans-serif;
+}
+
+.delivery-item p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #444;
+  font-family: "Figtree", sans-serif;
+}
+
+/* RIGHT IMAGE */
+.delivery-image {
+  position: relative;
+  text-align: center;
+}
+
+.delivery-image img {
+  width: 120%;
+  max-width: 900px;
+  height: auto;
+  margin-bottom: -100px;
+  margin-left: -80px;
+
+  -webkit-mask-image: linear-gradient(
+    to top,
+    transparent 0%,
+    black 35%,
+    black 100%
+  );
+  mask-image: linear-gradient(
+    to top,
+    transparent 0%,
+    black 35%,
+    black 100%
+  );
+}
+
+/* ================================
+   ANIMATIONS
+================================ */
+.fade-down {
+  opacity: 0;
+  transform: translateY(-40px);
+  transition: all 0.9s ease-out;
+}
+
+.fade-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: all 1s ease-out;
+}
+
+.fade-down.animate-active,
+.fade-left.animate-active {
+  opacity: 1;
+  transform: translate(0);
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+/* ---------- LARGE DESKTOP (1440px+) ---------- */
+@media (min-width: 1440px) {
+  .workplace-service-section {
+    margin: 60px;
+  }
+
+  .workplace-heading {
+    font-size: 52px;
+  }
+
+  .delivery-wrapper {
+    max-width: 1300px;
+    gap: 120px;
+  }
+}
+
+/* ---------- LAPTOP (1024px – 1439px) ---------- */
+@media (max-width: 1439px) {
+  .delivery-wrapper {
+    gap: 60px;
+  }
+
+  .delivery-image img {
+    width: 110%;
+    margin-left: -40px;
+    margin-bottom: -70px;
+  }
+}
+
+/* ---------- TABLET (768px – 1024px) ---------- */
+@media (max-width: 1024px) {
+  .workplace-service-section {
+    padding: 80px 18px;
+    margin: 30px;
+  }
+
+  .workplace-heading {
+    font-size: 36px;
+  }
+
+  .delivery-wrapper {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .delivery-content {
+    margin-right: 0;
+    gap: 40px;
+  }
+
+  .delivery-image img {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto -40px;
+  }
+}
+
+/* ---------- MOBILE (≤ 768px) ---------- */
+@media (max-width: 768px) {
+  .workplace-service-section {
+    padding: 70px 16px;
+    margin: 20px;
+    border-radius: 14px;
+  }
+
+  .workplace-heading {
+    font-size: 28px;
+  }
+
+  .workplace-subheading {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .delivery-content {
+    gap: 28px;
+  }
+
+  .delivery-item h4 {
+    font-size: 18px;
+  }
+
+  .delivery-item p {
+    font-size: 14px;
+  }
+
+  .delivery-icon {
+    font-size: 22px;
+  }
+
+  .delivery-image img {
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+}
+
+/* ---------- SMALL MOBILE (≤ 480px) ---------- */
+@media (max-width: 480px) {
+  .workplace-heading {
+    font-size: 24px;
+  }
+
+  .delivery-image img {
+    max-width: 230px;
+  }
+}

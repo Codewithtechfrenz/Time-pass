@@ -1,0 +1,345 @@
+/* ==================================================
+   CONTACT PAGE – BASE STYLES (DESKTOP DEFAULT)
+================================================== */
+
+.tp-contact-page {
+  scroll-behavior: smooth;
+  background-color: #f9f9f9;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ==================================================
+   HERO SECTION
+================================================== */
+
+.tp-contact-hero {
+  width: 100%;
+  min-height: 1000px;
+  background-image: url("../Image/contact-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  color: #ffffff;
+  text-align: center;
+}
+
+/* Hero animation */
+.tp-animate-hero {
+  opacity: 0;
+  transform: scale(1.05);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.tp-animate-hero.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ==================================================
+   CONTACT CARDS
+================================================== */
+
+.tp-contact-cards {
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.tp-contact-card {
+  background: #ffffff;
+  padding: 40px 25px;
+  text-align: center;
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+
+  opacity: 0;
+  transform: translateY(40px) scale(0.95);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.tp-contact-card.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Stagger */
+.tp-contact-card:nth-child(1) { transition-delay: 0.15s; }
+.tp-contact-card:nth-child(2) { transition-delay: 0.3s; }
+.tp-contact-card:nth-child(3) { transition-delay: 0.45s; }
+
+/* Gradient border */
+.tp-contact-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 5px;
+  width: 100%;
+  background: linear-gradient(90deg, #A0522D, #D2691E, #CD853F);
+}
+
+/* Hover */
+.tp-contact-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 16px 35px rgba(160,82,45,0.25);
+}
+
+/* Icon */
+.tp-contact-icon {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 34px;
+  transition: transform 0.35s ease;
+}
+
+.tp-contact-card:hover .tp-contact-icon {
+  transform: scale(1.25);
+}
+
+/* Icon colors */
+.tp-contact-card:nth-child(1) .tp-contact-icon {
+  color: #A0522D;
+  background: rgba(160,82,45,0.15);
+}
+.tp-contact-card:nth-child(2) .tp-contact-icon {
+  color: #D2691E;
+  background: rgba(210,105,30,0.15);
+}
+.tp-contact-card:nth-child(3) .tp-contact-icon {
+  color: #CD853F;
+  background: rgba(205,133,63,0.15);
+}
+
+/* Text */
+.tp-contact-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.tp-contact-card p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* CTA link */
+.tp-contact-card a {
+  display: inline-block;
+  margin-top: 12px;
+  color: #A0522D;
+  font-weight: 600;
+  text-decoration: none;
+  position: relative;
+}
+
+.tp-contact-card a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  background: currentColor;
+  transition: width 0.3s ease;
+}
+
+.tp-contact-card a:hover::after {
+  width: 100%;
+}
+
+/* ==================================================
+   CONTACT FORM
+================================================== */
+
+.tp-contact-form-wrapper {
+  max-width: 600px;
+  margin: 60px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.tp-contact-form-wrapper h2 {
+  font-size: 28px;
+  margin-bottom: 25px;
+  font-weight: 700;
+}
+
+.tp-contact-form {
+  background: #ffffff;
+  padding: 35px 25px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.tp-contact-form input,
+.tp-contact-form textarea {
+  padding: 14px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  border-radius: 8px;
+  outline: none;
+}
+
+.tp-contact-form input:focus,
+.tp-contact-form textarea:focus {
+  border-color: #ff6a00;
+}
+
+/* Button */
+.tp-contact-form button {
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: linear-gradient(135deg, #8B4513, #D2B48C);
+  transition: transform 0.3s ease;
+}
+
+.tp-contact-form button:hover {
+  transform: scale(1.05);
+}
+
+/* Form animation */
+.tp-animate-form {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.tp-animate-form.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==================================================
+   GOOGLE MAP
+================================================== */
+
+.tp-contact-map {
+  margin: 60px auto;
+  max-width: 1100px;
+  height: 400px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.tp-animate-map {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.tp-animate-map.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ==================================================
+   LAPTOP (769px – 1200px)
+================================================== */
+
+@media (max-width: 1200px) {
+  .tp-contact-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tp-contact-hero {
+    min-height: 800px;
+  }
+}
+
+/* ==================================================
+   TABLET (481px – 768px)
+================================================== */
+
+@media (max-width: 768px) {
+  .tp-contact-hero {
+    min-height: 550px;
+    padding: 50px 25px;
+  }
+
+  .tp-contact-cards {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .tp-contact-map {
+    height: 300px;
+  }
+
+  .tp-contact-form-wrapper h2 {
+    font-size: 24px;
+  }
+}
+
+/* ==================================================
+   MOBILE (≤ 480px)
+================================================== */
+
+@media (max-width: 480px) {
+
+  .tp-contact-hero {
+    min-height: 400px;
+    padding: 30px 15px;
+  }
+
+  .tp-contact-cards {
+    margin: 40px 15px;
+  }
+
+  .tp-contact-card {
+    padding: 20px 15px;
+  }
+
+  .tp-contact-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+  }
+
+  .tp-contact-card h3 {
+    font-size: 16px;
+  }
+
+  .tp-contact-card p {
+    font-size: 13px;
+  }
+
+  .tp-contact-form-wrapper h2 {
+    font-size: 20px;
+  }
+
+  .tp-contact-form {
+    padding: 20px 15px;
+  }
+
+  .tp-contact-map {
+    height: 230px;
+    margin: 40px 15px;
+  }
+}

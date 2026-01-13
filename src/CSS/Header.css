@@ -1,0 +1,391 @@
+/* ============================
+ HEADER CSS
+===============================*/
+
+html {
+  scroll-behavior: smooth;
+}
+
+.header {
+  color: #554736; /* Changed to match nav links for better contrast */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 900;
+
+border-radius: 5px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(10.8px);
+-webkit-backdrop-filter: blur(10.8px);
+/* Background image */
+
+
+ background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* Glass effect */
+  backdrop-filter: blur(10.8px);
+  -webkit-backdrop-filter: blur(10.8px);
+}
+
+/* Flex container */
+.header .container.nav {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ===== BRAND / LOGO ===== */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  gap: 8px;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  /* object-fit: contain; */
+}
+
+.brand h1 {
+  font-size: 0px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 0;
+  color: #ffbf36;
+   font-family: "Figtree", sans-serif;
+}
+
+/* ===== NAV LINKS ===== */
+.nav-links {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.nav-links a {
+  color: #7B542F;
+  text-decoration: none;
+  font-size: 50px;
+  padding: 4px 8px;
+  border-radius: 3px;
+  transition: background 0.2s ease, color 0.2s ease;
+   font-family: "Figtree", sans-serif;
+  font-weight: 800;
+}
+
+.nav-links a:hover {
+  /* background: rgba(58, 42, 42, 0.733); */
+  color: #ffbf36;
+}
+
+/* ===== CONTACT ICONS + TOOLTIPS ===== */
+.contact-icons {
+  display: flex;
+  gap: 35px;
+  align-items: center;
+}
+
+.icon-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #7B542F;
+  text-decoration: none;
+  font-size: 13px;
+  font-family: "Geom", sans-serif;
+}
+
+.icon-text:hover {
+  color: #3E5F44;
+}
+
+.icon-label {
+  display: inline-block;
+   font-family: "Figtree", sans-serif;
+}
+
+/* Tooltip wrapper */
+.tooltip {
+  position: relative;
+}
+
+/* Hidden tooltip text by default */
+.tooltip-text {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  bottom: -30px; /* Increased distance for better spacing */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333333;
+  color: #ffffff;
+  padding: 4px 8px;
+  border-radius: 3px;
+  font-size: 11px;
+  white-space: nowrap;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+   font-family: "Figtree", sans-serif;
+}
+
+/* Small arrow under tooltip */
+.tooltip-text::after {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 4px;
+  border-style: solid;
+  border-color: transparent transparent #5f5f5f transparent;
+}
+
+/* Show tooltip on hover */
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* ===== MOBILE TOGGLE (HAMBURGER) ===== */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  padding: 4px;
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  margin: 3px 0;
+  background-color: #f5e9da;
+}
+
+/* ===== RESPONSIVE BEHAVIOR ===== */
+@media (max-width: 768px) {
+  .header .container.nav {
+    padding: 8px 10px;
+    position: relative;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    flex-direction: column;
+    background: #3b2f2f;
+    padding: 8px 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: none;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .contact-icons {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+}
+
+/* ===============================
+   LARGE DESKTOP (1440px+)
+================================ */
+@media (min-width: 1440px) {
+  .header .container.nav {
+    max-width: 1800px;
+    padding: 10px 24px;
+  }
+
+  .logo {
+    width: 75px;
+    height: 75px;
+  }
+
+  .nav-links a {
+    font-size: 17px;
+    padding: 6px 10px;
+  }
+
+  .icon-text {
+    font-size: 14px;
+  }
+}
+
+/* ===============================
+   DESKTOP (1280px – 1439px)
+================================ */
+@media (max-width: 1439px) {
+  .header .container.nav {
+    max-width: 1400px;
+  }
+}
+
+/* ===============================
+   LAPTOP (1024px – 1279px)
+================================ */
+@media (max-width: 1279px) {
+  .logo {
+    width: 80px;
+    height: 80px;
+  }
+
+  .nav-links a {
+    font-size: 15px;
+  }
+
+  .contact-icons {
+    gap: 10px;
+  }
+}
+
+/* ===============================
+   TABLET (768px – 1023px)
+================================ */
+@media (max-width: 1023px) {
+  .header {
+    border-radius: 0;
+  }
+
+  .header .container.nav {
+    padding: 8px 12px;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+  }
+
+  .icon-label {
+    display: none;
+  }
+}
+
+/* ===============================
+   MOBILE (≤767px)
+================================ */
+@media (max-width: 767px) {
+  .logo {
+    width: 65px;
+    height: 65px;
+  }
+
+  .brand {
+    gap: 6px;
+  }
+
+  .nav-links {
+    background: rgba(59, 47, 47, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .nav-links a {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 15px;
+  }
+
+  .nav-toggle span {
+    background-color: #7B542F;
+  }
+}
+
+/* ===============================
+   SMALL MOBILE (≤480px)
+================================ */
+@media (max-width: 480px) {
+  .logo {
+    width: 55px;
+    height: 55px;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+  }
+}
+
+/* ===============================
+   TOUCH DEVICE OPTIMIZATION
+================================ */
+@media (hover: none) {
+  .nav-links a:hover {
+    background: none;
+    color: #7B542F;
+  }
+
+  .tooltip:hover .tooltip-text {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+/* ===============================
+   BOTTOM NAVIGATION (MOBILE & TABLET ONLY)
+================================ */
+.bottom-nav {
+  display: none; /* hidden by default */
+}
+
+@media (max-width: 1023px) {
+  .bottom-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #3b2f2f;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px 0;
+    z-index: 999;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: rgba(59, 47, 47, 0.51);
+border-radius: 10px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(10.3px);
+-webkit-backdrop-filter: blur(10.3px);
+border: 1px solid rgba(59, 47, 47, 0.2);
+    
+  }
+
+  .bottom-nav a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #7B542F;
+    text-decoration: none;
+    font-size: 12px;
+    gap: 4px;
+    transition: all 0.2s ease;
+  }
+
+  .bottom-nav a span {
+    font-family: "Figtree", sans-serif;
+    font-weight: 600;
+  }
+
+  .bottom-nav a.active,
+  .bottom-nav a:hover {
+    color: #ffbf36;
+  }
+}

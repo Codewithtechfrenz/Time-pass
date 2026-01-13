@@ -1,0 +1,242 @@
+/* ===== Menu CSS ===== */
+
+/* ================================
+   POPULAR BEVERAGES – FINAL
+================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&display=swap');
+
+/* SECTION BACKGROUND */
+.beverages-section {
+  position: relative;
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #000000, #2e2e2e);
+  color: #fff;
+  overflow: hidden;
+}
+
+/* SOFT MASK */
+.bw-mask {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(255,255,255,0.03), transparent 70%);
+  pointer-events: none;
+}
+
+/* WRAPPER */
+.beverages-wrapper {
+  max-width: 1200px;
+  margin: auto;
+  position: relative;
+}
+
+/* HEADING */
+.beverages-heading {
+  text-align: center;
+  font-size: 48px;
+  margin-bottom: 70px;
+  font-family: "Figtree", sans-serif;
+}
+
+.beverages-heading span {
+  color: #ffbf36;
+}
+
+.beverages-heading p {
+  margin-top: 30px;
+  font-size: 14px;
+  color: #d1d1d1;
+  letter-spacing: 1px;
+  font-family: "Figtree", sans-serif;
+}
+
+/* ===========================
+   FADE-DOWN SCROLL ANIMATION
+=========================== */
+.fade-down {
+  opacity: 0;
+  transform: translateY(-30px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fade-down.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-delay {
+  transition-delay: 0.25s;
+}
+
+/* GRID */
+.beverages-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+/* CARD */
+.beverage-card {
+  text-align: center;
+  position: relative;
+  padding: 20px 0;
+  border-radius: 12px;
+  border: 1.5px solid transparent;
+  transition: border 0.35s ease;
+}
+
+/* IMAGE FRAME */
+.image-frame1 {
+  width: 60%;
+  aspect-ratio: 1 / 1;
+  margin-left: 70px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+/* IMAGE */
+.image-frame1 img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.35s ease;
+}
+
+/* IMAGE HOVER */
+.image-frame1:hover {
+  cursor: pointer;
+}
+
+/* CARD BORDER ON IMAGE HOVER */
+.beverage-card:has(.image-frame1:hover) {
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+}
+
+/* IMAGE ZOOM-OUT */
+.image-frame1:hover img {
+  transform: scale(0.9);
+}
+
+/* PRODUCT NAME */
+.product-name {
+  margin-top: 30px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #f2f2f2;
+  padding: 6px 35px;
+  background: rgba(94, 93, 93, 0.17);
+  border-radius: 5px;
+  backdrop-filter: blur(20px);
+  display: inline-block;
+  font-family: "Figtree", sans-serif;
+}
+
+/* BADGES */
+.badge {
+  position: absolute;
+  top: 12px;
+  left: 10px;
+  font-size: 15px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.3s ease;
+  pointer-events: none;
+  font-family: "Figtree", sans-serif;
+  z-index: 3;
+}
+
+.badge.hot,
+.badge.cold {
+  color: #fff;
+}
+
+/* SHOW BADGE ON IMAGE HOVER */
+.image-frame1:hover .badge {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* FOOTER BUTTON */
+.beverages-footer {
+  margin-top: 60px;
+  text-align: center;
+}
+
+.view-btn {
+  background-color: #f4b400;
+  color: #000;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  letter-spacing: 0.5px;
+  font-family: "Figtree", sans-serif;
+}
+
+.view-btn:hover {
+  background-color: #ffc107;
+  transform: translateY(-2px);
+}
+
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+/* TABLET */
+@media (max-width: 1024px) {
+  .beverages-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .beverages-heading {
+    font-size: 34px;
+  }
+
+  .image-frame1 {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 640px) {
+  .beverages-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .beverages-heading {
+    font-size: 26px;
+  }
+
+  .beverages-heading p {
+    font-size: 13px;
+  }
+
+  .image-frame1 {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .view-btn {
+    width: 100%;
+    max-width: 260px;
+    font-size: 16px;
+  }
+
+  .fade-down {
+    transform: translateY(-20px);
+  }
+}

@@ -1,0 +1,99 @@
+/* ===============================
+   SCROLL TO TOP BUTTON
+================================ */
+
+.scroll-top-btn {
+  position: fixed;
+  right: 28px;
+  bottom: 28px;
+  width: 10px;
+  height: 10px;
+  border-radius: 90%;
+  border: none;
+  background: #ffffff;
+  color: #7B542F;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.35s ease;
+  z-index: 999;
+  border: 2px solid #ffae34;
+}
+
+/* SHOW */
+.scroll-top-btn.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* HOVER (DESKTOP ONLY) */
+.scroll-top-btn:hover {
+  transform: translateY(-6px) scale(1.05);
+  background: #7B542F;
+  color: #ffffff;
+}
+
+/* ===============================
+   RESPONSIVE DESIGN
+================================ */
+
+/* LARGE DESKTOP */
+@media (min-width: 1440px) {
+  .scroll-top-btn {
+    width: 64px;
+    height: 64px;
+    font-size: 24px;
+    right: 34px;
+    bottom: 34px;
+  }
+}
+
+/* LAPTOP */
+@media (max-width: 1439px) {
+  .scroll-top-btn {
+    width: 58px;
+    height: 58px;
+    font-size: 22px;
+  }
+}
+
+/* TABLET */
+@media (max-width: 1023px) {
+  .scroll-top-btn {
+    width: 52px;
+    height: 52px;
+    font-size: 20px;
+    right: 20px;
+    bottom: 20px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 767px) {
+  .scroll-top-btn {
+    width: 46px;
+    height: 46px;
+    font-size: 18px;
+    right: 16px;
+    bottom: 70px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
+  }
+
+  .scroll-top-btn:hover {
+    transform: none;
+  }
+}
+
+/* SMALL MOBILE */
+@media (max-width: 480px) {
+  .scroll-top-btn {
+    width: 42px;
+    height: 42px;
+    font-size: 17px;
+  }
+}

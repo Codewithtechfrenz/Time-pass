@@ -1,0 +1,228 @@
+/* ===================== 
+    PREPARATION CSS
+====================== */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Edu+SA+Beginner:wght@400..700&display=swap');
+
+/* =========================
+   SECTION LAYOUT
+========================= */
+.coffee-cards-section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  padding: 25px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* =========================
+   CARD STRUCTURE
+========================= */
+.coffee-card {
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.coffee-card-inner {
+  position: relative;
+  width: 330px;
+  height: 260px;
+  transform-style: preserve-3d;
+  transition: transform 0.8s ease;
+}
+
+.coffee-card:hover .coffee-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* =========================
+   FRONT & BACK
+========================= */
+.coffee-card-front,
+.coffee-card-back {
+  position: absolute;
+  inset: 0;
+  padding: 20px 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  backface-visibility: hidden;
+  box-sizing: border-box;
+}
+
+/* Alternating colors */
+.coffee-card:nth-child(odd) .coffee-card-front {
+  background: rgb(241, 232, 179);
+}
+
+.coffee-card:nth-child(even) .coffee-card-front {
+  background: #d6c399;
+}
+
+.coffee-card:nth-child(odd) .coffee-card-back {
+  background: #d6c399;
+}
+
+.coffee-card:nth-child(even) .coffee-card-back {
+  background: rgb(241, 232, 179);
+}
+
+/* Back face */
+.coffee-card-back {
+  transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* =========================
+   LOGO
+========================= */
+.coffee-card-back img {
+  max-width: 180px;
+  opacity: 0.9;
+  transform: scale(0.9);
+}
+
+.coffee-card:hover .coffee-card-back img {
+  animation: logoRotate 2s ease-in-out infinite;
+  transform: scale(1);
+}
+
+/* =========================
+   CONTENT
+========================= */
+.icon {
+  margin-bottom: 15px;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #7B542F;
+  font-family: "Nunito", sans-serif;
+}
+
+.description {
+  font-size: 18px;
+  font-weight: 600;
+  color: #555;
+  padding-top: 10px;
+   font-family: "Edu SA Beginner", cursive;
+}
+
+/* =========================
+   DESKTOP (1440px+)
+========================= */
+@media (min-width: 1440px) {
+  .coffee-cards-section {
+    max-width: 1400px;
+    margin: auto;
+  }
+}
+
+/* =========================
+   LAPTOP (1024px–1439px)
+========================= */
+@media (max-width: 1439px) {
+  .coffee-cards-section {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 36px;
+  }
+}
+
+/* =========================
+   TABLET (768px–1023px)
+========================= */
+@media (max-width: 1024px) {
+  .coffee-cards-section {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 30px;
+  }
+
+  .coffee-card-front,
+  .coffee-card-back {
+    padding: 40px 24px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .description {
+    font-size: 15px;
+  }
+
+  .coffee-card-back img {
+    max-width: 260px;
+  }
+}
+
+/* =========================
+   MOBILE (≤767px)
+========================= */
+@media (max-width: 767px) {
+  .coffee-cards-section {
+    grid-template-columns: 1fr;
+    padding: 24px 16px;
+  }
+
+  .coffee-card-inner {
+    min-height: 260px;
+  }
+
+  .coffee-card-front,
+  .coffee-card-back {
+    padding: 34px 20px;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+
+  .coffee-card-back img {
+    max-width: 220px;
+  }
+}
+
+/* =========================
+   SMALL MOBILE (≤480px)
+========================= */
+@media (max-width: 480px) {
+  .coffee-card-inner {
+    min-height: 240px;
+  }
+
+  .title {
+    font-size: 17px;
+  }
+
+  .description {
+    font-size: 13px;
+  }
+
+  .coffee-card-back img {
+    max-width: 180px;
+  }
+}
+
+/* =========================
+   TOUCH DEVICE SAFETY
+========================= */
+@media (hover: none) {
+  .coffee-card:hover .coffee-card-inner {
+    transform: none;
+  }
+
+  .coffee-card:hover .coffee-card-back img {
+    animation: none;
+  }
+}

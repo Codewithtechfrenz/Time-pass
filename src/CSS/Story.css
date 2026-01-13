@@ -1,0 +1,278 @@
+/* Story Section CSS */
+
+
+/* ================================
+   OUR STORY SECTION
+================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&display=swap');
+
+/* GLOBAL */
+html {
+  scroll-behavior: smooth;
+}
+
+.ourstory-section {
+  position: relative;
+  padding: 100px 20px;
+  overflow: hidden;
+
+  /* MULTIPLE BACKGROUND IMAGES */
+  background-image:
+    url("../Image/Story.png"),
+    url("../Image/Storyback.png");
+
+  background-repeat: no-repeat, no-repeat;
+
+  background-position:
+    right 40px top -120px,
+    left -90px bottom -150px;
+
+  background-size:
+    300px auto,
+    420px auto;
+}
+
+/* ===========================
+   PARALLAX BACKGROUND LAYER
+=========================== */
+
+.ourstory-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  background-image: url("../Image/Storyback.png");
+  background-repeat: no-repeat;
+  background-size: 420px auto;
+  background-position: left -90px bottom -150px;
+
+  transform: translateY(0);
+  will-change: transform;
+}
+
+/* Scroll-linked parallax (modern browsers) */
+@supports (animation-timeline: scroll()) {
+  .ourstory-section::before {
+    animation: parallaxMove linear;
+    animation-timeline: scroll();
+    animation-range: entry 0% exit 100%;
+  }
+
+  @keyframes parallaxMove {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(120px);
+    }
+  }
+}
+
+/* Keep content above background */
+.ourstory-wrapper {
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* ===========================
+   HEADING
+=========================== */
+
+.ourstory-heading {
+  font-size: 48px;
+  font-weight: 600;
+  margin-bottom: 50px;
+  font-family: "Figtree", sans-serif;
+  color: #ffbe31;
+  letter-spacing: 1px;
+}
+
+/* MAGIC UI UNDERLINE */
+.magic-underline {
+  display: block;
+  width: 150px;
+  height: 2px;
+  margin: 12px auto 0;
+  background: linear-gradient(90deg, transparent, #7B542F, transparent);
+  border-radius: 999px;
+  transition: width 0.8s ease;
+}
+
+.fade-down.show .magic-underline {
+  width: 120px;
+}
+
+/* ===========================
+   STORY CONTENT
+=========================== */
+
+.ourstory-content {
+  text-align: justify;
+  text-align-last: center;
+  font-family: "Figtree", sans-serif;
+}
+
+.ourstory-content p {
+  font-size: 17px;
+  line-height: 2.1;
+  color: #000000;
+  margin-bottom: 18px;
+}
+
+/* ===========================
+   FADE DOWN ANIMATION
+=========================== */
+
+.fade-down {
+  opacity: 0;
+  transform: translateY(-30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-down.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===========================
+   BLUR-IN TEXT ANIMATION
+=========================== */
+
+.blur-text {
+  display: block;
+  opacity: 0;
+  filter: blur(10px);
+  transform: translateY(20px);
+  transition:
+    opacity 0.9s ease,
+    filter 0.9s ease,
+    transform 0.9s ease;
+}
+
+.blur-text.show {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+}
+
+/* ===========================
+   RESPONSIVE DESIGN
+=========================== */
+
+/* LARGE DESKTOP */
+@media (min-width: 1440px) {
+  .ourstory-wrapper {
+    max-width: 1000px;
+  }
+
+  .ourstory-heading {
+    font-size: 52px;
+  }
+}
+
+/* LAPTOP */
+@media (max-width: 1439px) {
+  .ourstory-section {
+    background-position:
+      right 20px top -100px,
+      left -70px bottom -120px;
+  }
+}
+
+/* TABLET */
+@media (max-width: 1024px) {
+  .ourstory-section {
+    padding: 90px 20px;
+
+    background-size:
+      240px auto,
+      360px auto;
+
+    background-position:
+      right 10px top -80px,
+      left -60px bottom -100px;
+  }
+
+  .ourstory-heading {
+    font-size: 36px;
+  }
+
+  .ourstory-content p {
+    font-size: 16px;
+    line-height: 2;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 767px) {
+  .ourstory-section {
+    padding: 70px 16px;
+
+    background-size:
+      180px auto,
+      260px auto;
+
+    background-position:
+      right -20px top -40px,
+      left -40px bottom -60px;
+  }
+
+  .ourstory-heading {
+    font-size: 28px;
+    margin-bottom: 35px;
+  }
+
+  .ourstory-content {
+    text-align: left;
+    text-align-last: auto;
+  }
+
+  .ourstory-content p {
+    font-size: 15px;
+    line-height: 1.9;
+  }
+
+  .magic-underline {
+    margin-top: 10px;
+  }
+}
+
+/* SMALL MOBILE */
+@media (max-width: 480px) {
+  .ourstory-section {
+    padding: 60px 14px;
+
+    background-size:
+      140px auto,
+      220px auto;
+
+    background-position:
+      right -30px top -20px,
+      left -50px bottom -50px;
+  }
+
+  .ourstory-heading {
+    font-size: 24px;
+  }
+
+  .blur-text {
+    filter: blur(6px);
+    transform: translateY(14px);
+  }
+}
+
+/* ===========================
+   DISABLE PARALLAX ON MOBILE
+=========================== */
+
+@media (max-width: 768px) {
+  .ourstory-section::before {
+    animation: none;
+    transform: none;
+  }
+}

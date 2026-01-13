@@ -1,0 +1,352 @@
+/* ======================== */
+     /* OFFER SECTION CSS */
+/* ======================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&display=swap');
+
+/* ===============================
+   OFFER SECTION
+================================ */
+.offer-section {
+  position: relative;
+  padding: 120px 20px;
+  overflow: hidden;
+  font-family: "Figtree", sans-serif;
+}
+
+/* ===============================
+   CONTENT
+================================ */
+.offer-content {
+  max-width: 1400px;
+  max-height: 250px;
+  margin: auto;
+  position: relative;
+  z-index: 1;
+  background-color: #522308db;
+  padding: 50px;
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+  gap: 50px;
+
+  /* Fade In Down */
+  opacity: 0;
+  transform: translateY(-40px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.offer-content.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===============================
+   IMAGE
+================================ */
+.offer-image {
+  position: absolute;
+  top: -80px;
+  left: 80px;
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  pointer-events: none;
+
+  /* Fade in from top-left */
+  opacity: 1;
+  transform: translate(-40px, -40px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* When visible */
+.offer-image.show {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+.offer-image img {
+  width: 100%;
+  max-width: 500px;
+  object-fit: contain;
+}
+
+
+/* ===============================
+   TEXT
+================================ */
+.offer-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* ===============================
+   TEXT STYLES
+================================ */
+.offer-text h2 {
+  font-size: 55px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 20px;
+  font-family: "Figtree", sans-serif;
+}
+
+.offer-text h2 span {
+  color: #f2d94d;
+  font-family: "Figtree", sans-serif;
+}
+
+.offer-text p {
+  font-size: 15px;
+  color: #ffffff;
+  margin-bottom: 30px;
+  font-family: "Figtree", sans-serif;
+}
+
+/* ===============================
+   FORM
+================================ */
+.offer-form {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.offer-form input {
+  width: 350px;
+  max-width: 100%;
+  padding: 14px 18px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  font-family: "Figtree", sans-serif;
+}
+
+.offer-form button {
+  padding: 14px 28px;
+  border-radius: 10px;
+  border: none;
+  background: #2b2116;
+  color: #ffffff;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-family: "Figtree", sans-serif;
+}
+
+.offer-form button:hover {
+  background: #1f170f;
+}
+
+/* ===============================
+   RESPONSIVE CSS (ADDED ONLY)
+================================ */
+
+/* LAPTOP */
+@media (max-width: 1200px) {
+  .offer-text h2 {
+    font-size: 42px;
+  }
+
+  .offer-image img {
+    max-width: 420px;
+  }
+}
+
+/* TABLET */
+@media (max-width: 991px) {
+  .offer-content {
+    flex-direction: column;
+    max-height: none;
+    padding: 40px 30px;
+    text-align: center;
+  }
+
+  .offer-image {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-bottom: -20px;
+    justify-content: center;
+  }
+
+  .offer-image img {
+    max-width: 360px;
+  }
+
+  .offer-text h2 {
+    font-size: 34px;
+  }
+
+  .offer-text p {
+    font-size: 14px;
+  }
+
+  .offer-form {
+    justify-content: center;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 767px) {
+  .offer-section {
+    padding: 70px 15px;
+  }
+
+  .offer-content {
+    padding: 30px 20px;
+  }
+
+  .offer-image img {
+    max-width: 260px;
+  }
+
+  .offer-text h2 {
+    font-size: 48px;
+    line-height: 1.3;
+  }
+
+  .offer-text p {
+    font-size: 13px;
+  }
+
+  .offer-form {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .offer-form input,
+  .offer-form button {
+    width: 100%;
+  }
+}
+
+/* EXTRA SMALL */
+@media (max-width: 480px) {
+  .offer-text h2 {
+    font-size: 25px;
+  }
+
+  .offer-image img {
+    max-width: 220px;
+  }
+}
+
+/* ======================================
+   PIXEL PERFECT MOBILE TUNING
+====================================== */
+@media (max-width: 480px) {
+
+  .offer-section {
+    padding: 55px 12px;
+  }
+
+  .offer-content {
+    padding: 26px 18px;
+    border-radius: 12px;
+    gap: 20px;
+  }
+
+  /* IMAGE */
+  .offer-image {
+    margin-bottom: -10px;
+  }
+
+  .offer-image img {
+    max-width: 210px;
+  }
+
+  /* TEXT */
+  .offer-text h2 {
+    font-size: 21px;
+    line-height: 1.25;
+    margin-bottom: 12px;
+  }
+
+  .offer-text p {
+    font-size: 12.5px;
+    line-height: 1.55;
+    margin-bottom: 22px;
+  }
+
+  /* FORM */
+  .offer-form {
+    gap: 12px;
+  }
+
+  .offer-form input {
+    padding: 13px 16px;
+    font-size: 13px;
+    border-radius: 8px;
+  }
+
+  .offer-form button {
+    padding: 13px 16px;
+    font-size: 13px;
+    border-radius: 8px;
+  }
+}
+
+/* ======================================
+   PIXEL PERFECT TABLET TUNING
+====================================== */
+@media (min-width: 768px) and (max-width: 1024px) {
+
+  .offer-section {
+    padding: 90px 24px;
+  }
+
+  .offer-content {
+    padding: 40px 32px;
+    gap: 35px;
+    max-height: 280px;
+    border-radius: 14px;
+  }
+
+  /* IMAGE */
+  .offer-image {
+    top: -60px;
+    left: 40px;
+  }
+
+  .offer-image img {
+    max-width: 360px;
+  }
+
+  /* TEXT */
+  .offer-text h2 {
+    font-size: 36px;
+    line-height: 1.25;
+    margin-bottom: 16px;
+  }
+
+  .offer-text p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 26px;
+  }
+
+  /* FORM */
+  .offer-form {
+    gap: 12px;
+  }
+
+  .offer-form input {
+    width: 300px;
+    padding: 13px 18px;
+    font-size: 14px;
+    border-radius: 9px;
+  }
+
+  .offer-form button {
+    padding: 13px 22px;
+    font-size: 14px;
+    border-radius: 9px;
+  }
+}

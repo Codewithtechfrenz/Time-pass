@@ -1,0 +1,274 @@
+/* ===========================
+CONTENT 1 SECTION
+================================*/
+
+
+
+/* ===================== Google Fonts ===================== */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&display=swap');
+
+/* ===================== BASE SECTION ===================== */
+.showcase-section {
+  position: relative;
+  padding: 100px 150px;
+  background: linear-gradient(135deg, #fefefe, #f7f1e1);
+  overflow: hidden;
+  font-family: "Figtree", sans-serif;
+  color: #333;
+}
+
+/* ===================== BACKGROUND TEXT ===================== */
+.showcase-bg-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 12rem;
+  font-weight: 900;
+  color: rgba(0,0,0,0.03);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+  z-index: 0;
+  font-family: "Figtree", sans-serif;
+}
+
+/* ===================== DECORATIVE CIRCLES ===================== */
+.decor-circle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.15;
+  z-index: 1;
+}
+
+.decor-circle-1 {
+  width: 300px;
+  height: 300px;
+  background: #ffcc80;
+  top: -50px;
+  left: -50px;
+  animation: float 8s ease-in-out infinite;
+}
+
+.decor-circle-2 {
+  width: 200px;
+  height: 200px;
+  background: #7B542F;
+  bottom: -30px;
+  right: -30px;
+  animation: float 10s ease-in-out infinite alternate;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-15px, -20px); }
+}
+
+/* ===================== CONTAINER ===================== */
+.showcase-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 60px;
+  position: relative;
+  z-index: 2;
+}
+
+/* ===================== CONTENT ===================== */
+.showcase-content {
+  flex: 1 1 500px;
+  max-width: 600px;
+  padding: 20px;
+  font-family: "Figtree", sans-serif;
+}
+
+.showcase-label {
+  display: inline-block;
+  background: #7B542F;
+  color: whitesmoke;
+  padding: 6px 14px;
+  font-weight: 600;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+  font-family: "Figtree", sans-serif;
+}
+
+.showcase-label:hover { transform: scale(1.1); }
+
+.showcase-content h2 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  font-family: "Figtree", sans-serif;
+}
+
+.showcase-content h2 span { color: #7B542F; }
+
+.showcase-divider {
+  width: 80px;
+  height: 4px;
+  margin: 20px 0;
+  background: linear-gradient(to right, #7B542F, #ffcc80);
+  border-radius: 2px;
+}
+
+.showcase-content p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 30px;
+  color: #555;
+  font-family: "Figtree", sans-serif;
+}
+
+/* ===================== HIGHLIGHTS ===================== */
+.showcase-highlights {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.highlight-box {
+  background: #fff3e0;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex: 1 1 140px;
+  font-family: "Figtree", sans-serif;
+}
+
+.highlight-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.highlight-box strong {
+  display: block;
+  font-size: 2rem;
+  color: #7B542F;
+  font-family: "Figtree", sans-serif;
+}
+
+/* ===================== IMAGE RIGHT ===================== */
+.showcase-image {
+  flex: 1 1 400px;
+  max-width: 350px;
+}
+
+.image-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 30px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  transition: transform 0.5s ease;
+}
+
+.image-frame:hover { transform: scale(1.05) rotate(-1deg); }
+
+.image-frame img {
+  width: 100%;
+  display: block;
+  border-radius: 30px;
+}
+
+.image-badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: #ff8a65;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  font-family: "Figtree", sans-serif;
+}
+
+/* ===================== MIDDLE IMAGE ===================== */
+.showcase-middle-image {
+  flex: 0 0 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.showcase-middle-image img {
+  width: 100%;
+  max-width: 200px;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+  transition: transform 0.4s ease;
+}
+
+.showcase-middle-image img:hover {
+  transform: translateY(-10px) scale(1.05);
+}
+
+/* ===================== LAPTOP ===================== */
+@media (max-width: 1280px) {
+  .showcase-section {
+    padding: 90px 80px;
+  }
+
+  .showcase-content h2 {
+    font-size: 2.6rem;
+  }
+}
+
+/* ===================== TABLET ===================== */
+@media (max-width: 1024px) {
+  .showcase-container {
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  .showcase-bg-text {
+    font-size: 8rem;
+  }
+
+  .showcase-content {
+    text-align: center;
+  }
+
+  .showcase-divider {
+    margin: 20px auto;
+  }
+
+  .showcase-highlights {
+    justify-content: center;
+  }
+}
+
+/* ===================== MOBILE ===================== */
+@media (max-width: 640px) {
+  .showcase-section {
+    padding: 70px 18px;
+  }
+
+  .showcase-bg-text {
+    font-size: 5rem;
+  }
+
+  .showcase-content h2 {
+    font-size: 1.9rem;
+  }
+
+  .showcase-content p {
+    font-size: 1rem;
+  }
+
+  .highlight-box strong {
+    font-size: 1.6rem;
+  }
+
+  /* Reduce motion for mobile */
+  .image-frame:hover,
+  .highlight-box:hover,
+  .showcase-middle-image img:hover {
+    transform: none;
+  }
+}

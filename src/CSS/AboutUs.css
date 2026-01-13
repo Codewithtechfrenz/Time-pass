@@ -1,0 +1,675 @@
+/* ==================================================
+   About Us Section
+================================================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ==================================================
+   About Video Banner
+================================================== */
+.tp-about-banner {
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tp-about-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.tp-about-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 2;
+}
+
+.tp-about-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  max-width: 960px;
+  padding: 0 1.5rem;
+  color: #ffffff;
+}
+
+.tp-about-heading {
+  font-size: 3.6rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1.2rem;
+  font-family: "Figtree", sans-serif;
+}
+
+.tp-about-subheading {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  max-width: 760px;
+  margin: 0 auto;
+  font-family: "Figtree", sans-serif;
+}
+
+.tp-highlight {
+  color: #ffb703;
+  font-weight: 700;
+  font-family: "Figtree", sans-serif;
+}
+
+/* ==================================================
+   About Us Page Wrapper
+================================================== */
+.tp-aboutus-page {
+  background: #faf7f2;
+  font-family: "Figtree", sans-serif;
+  color: #3b2f2f;
+}
+
+.tp-aboutus-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+}
+
+.tp-aboutus-title {
+  text-align: center;
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 4rem;
+  color: #4b2e1e;
+}
+
+/* =========================
+   Section Title Scroll Animation
+========================= */
+.tp-title-animate.tp-scroll-animate {
+  opacity: 0;
+  transform: translateY(-50px); /* slide from top */
+  transition: all 0.7s ease-out;
+}
+
+.tp-title-animate.tp-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==================================================
+   Mission / Vision / Values Layout
+================================================== */
+.tp-aboutus-mvv {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+  margin-bottom: 5rem;
+}
+
+.tp-aboutus-mvv-reverse {
+  direction: rtl;
+}
+
+.tp-aboutus-mvv-reverse > * {
+  direction: ltr;
+}
+
+.tp-aboutus-mvv-content h3 {
+  font-size: 35px;
+  font-weight: 700;
+  margin-bottom: 1.4rem;
+  color: #4b2e1e;
+}
+
+.tp-aboutus-mvv-content p {
+  position: relative;
+  padding: 2.2rem 2.8rem;
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: #5c4a3f;
+  max-width: 520px;
+}
+
+/* Big Double Quotes */
+.tp-aboutus-mvv-content p::before {
+  content: "❛";
+  position: absolute;
+  top: -20px;
+  left: -10px;
+  font-size: 7rem;
+  font-weight: 900;
+  color: #ffb703; /* optional highlight color */
+  line-height: 1;
+  font-family: "Figtree", sans-serif;
+}
+
+.tp-aboutus-mvv-content p::after {
+  content: "❜";
+  position: absolute;
+  bottom: -20px;
+  right: -5px;
+  font-size: 7rem;
+  font-weight: 900;
+  color: #ffb703; /* optional highlight color */
+  font-family: "Figtree", sans-serif;
+  line-height: 1;
+}
+
+/* ==================================================
+   Scroll Fade Animations
+================================================== */
+.tp-aboutus-mvv-image {
+  display: flex;
+  justify-content: center;
+}
+
+.tp-img-animate.tp-scroll-animate {
+  opacity: 0;
+  transform: translateX(0);
+  transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+}
+
+.tp-img-animate.tp-fade-left.tp-scroll-animate {
+  transform: translateX(-60px);
+}
+
+.tp-img-animate.tp-fade-right.tp-scroll-animate {
+  transform: translateX(60px);
+}
+
+.tp-img-animate.tp-active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ==================================================
+   Media (Images & Videos)
+================================================== */
+
+/* ===========================
+   General Images (About Us & Mission)
+=========================== */
+.tp-aboutus-mvv-image img,
+.tp-mission-img img {
+  width: 100%;
+  max-width: 350px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 0;  /* removed card style */
+  box-shadow: none;   /* removed shadow */
+  background: none;   /* removed background */
+}
+
+/* ===========================
+   Values Images
+=========================== */
+.tp-values-img img {
+  width: 100%;
+  max-width: 360px;
+  height: auto;       /* keeps aspect ratio */
+}
+
+/* ===========================
+   Videos (About Us & General)
+=========================== */
+.tp-aboutus-mvv-image video {
+  width: 100%;
+  max-width: 350px;
+  height: 340px;
+  object-fit: cover;
+  border-radius: 10px; 
+  box-shadow: none;
+  background: none;
+}
+
+.tp-aboutus-mvv-media video {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* ===========================
+   Images - About Us, Mission, Values
+=========================== */
+.tp-values-mvv-media img {
+  width: 50%;
+  border-radius: 10px;
+}
+.tp-mission-mvv-media img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* ==================================================
+   Why Choose Us
+================================================== */
+.tp-aboutus-why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tp-aboutus-why-card {
+  position: relative;
+  padding-left: 60px;
+}
+
+.tp-aboutus-why-num {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #7a8a99;
+}
+
+.tp-aboutus-why-num::after {
+  content: "";
+  position: absolute;
+  right: -45px;
+  top: 50%;
+  width: 35px;
+  height: 2px;
+  background: #ffba25;
+  transform: translateY(-50%);
+}
+
+.tp-aboutus-why-card h4 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #2c2c2c;
+}
+
+.tp-aboutus-why-card p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #666;
+}
+
+/* ==============================
+   FADE IN DOWN ANIMATION
+============================== */
+.tp-fade-down {
+  opacity: 0;
+  transform: translateY(-30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.tp-active.tp-fade-down {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ================= STATS SECTION ================= */
+.tp-aboutus-soft-stats {
+  padding: 100px 8%;
+  background: linear-gradient(
+    135deg,
+    #f4efe8,
+    #ece6dc
+  );
+  text-align: center;
+}
+
+
+
+/* SECTION HEADING */
+.tp-aboutus-soft-stats-title {
+  font-size: 48px;
+  font-weight: 400;
+  color: #4a2c1d;
+  margin-bottom: 70px;
+}
+
+/* GRID */
+.tp-aboutus-soft-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 60px;
+  max-width: 900px;
+  margin: auto;
+}
+
+/* GLASS CARD */
+.tp-soft-stat {
+  background: rgba(255, 255, 255, 0.06);
+border-radius: 18px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5.8px);
+-webkit-backdrop-filter: blur(5.8px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 45px 35px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.tp-soft-stat:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+}
+
+/* STAT NUMBER */
+.tp-soft-stat h3 {
+  font-size: 55px;
+  font-weight: 600;
+  color: #f4b400; /* coffee tone */
+  margin-bottom: 12px;
+}
+
+/* TEXT */
+.tp-soft-stat p {
+  font-size: 0.95rem;
+  color: #6d5239;
+  font-weight: 600;
+  line-height: 1.6;
+  max-width: 300px;
+  margin: auto;
+}
+
+/* ================= SCROLL ANIMATION ================= */
+.tp-scroll-animate {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.tp-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+/* ==================================================
+   Call To Action
+================================================== */
+.tp-aboutus-cta {
+  background: #4b2e1e;
+  color: #ffffff;
+  text-align: center;
+  padding: 4.5rem 2rem;
+}
+
+.tp-aboutus-cta h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.tp-aboutus-cta p {
+  font-size: 1.05rem;
+  margin-bottom: 2rem;
+}
+
+.tp-aboutus-cta-btn {
+  background: #ffb703;
+  color: #3b2f2f;
+  padding: 0.9rem 2.5rem;
+  border-radius: 30px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tp-aboutus-cta-btn:hover {
+  background: #f1e8b3;
+  transform: translateY(-2px);
+}
+
+/* MAGIC UI UNDERLINE */
+.magic-underline-one {
+  display: block;
+  width: 300px;
+  height: 2px;
+  margin: 12px auto 0;
+  background: linear-gradient(90deg, transparent, #7B542F, transparent);
+  border-radius: 999px;
+  transition: width 0.8s ease;
+}
+
+.fade-down.show .magic-underline-one {
+  width: 120px;
+}
+
+
+/* ==================================================
+   Responsive
+================================================== */
+@media (max-width: 992px) {
+  .tp-aboutus-mvv {
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .tp-about-heading {
+    font-size: 2.4rem;
+  }
+
+  .tp-aboutus-mvv,
+  .tp-aboutus-mvv-reverse {
+    grid-template-columns: 1fr;
+    text-align: center;
+    direction: ltr;
+  }
+
+  .tp-aboutus-mvv-content p {
+    max-width: 100%;
+    padding: 2.5rem 1.5rem;
+  }
+
+  .tp-aboutus-choose-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .tp-aboutus-title {
+    font-size: 2rem;
+  }
+
+  .tp-aboutus-mvv-content h3 {
+    font-size: 1.6rem;
+  }
+
+  .tp-aboutus-mvv-image img,
+  .tp-aboutus-mvv-image video {
+    height: 280px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .tp-aboutus-why-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .tp-aboutus-why-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .tp-aboutus-why-card {
+    padding-left: 50px;
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .tp-aboutus-soft-stats-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .tp-aboutus-soft-stats-title {
+    font-size: 2rem;
+  }
+
+  .tp-soft-stat h3 {
+    font-size: 2.4rem;
+  }
+}
+
+/* ================================
+   About Us Page Mobile Optimizations
+=============================== */
+
+/* Extra Small Devices (phones, max-width: 480px) */
+@media (max-width: 480px) {
+
+  /* Banner */
+  .tp-about-banner {
+    height: 180px;
+  }
+  .tp-about-video {
+    height: 100%;
+  }
+  .tp-about-overlay {
+    background: rgba(0,0,0,0.55);
+  }
+
+  .tp-about-heading {
+    font-size: 1.8rem;
+  }
+  .tp-about-subheading {
+    font-size: 0.9rem;
+  }
+
+  /* About Us Section Padding */
+  .tp-aboutus-section {
+    padding: 2rem 1rem;
+  }
+
+/* ================================
+   Mission / Vision / Values Mobile Fix
+=============================== */
+
+/* Extra Small Devices (phones, max-width: 480px) */
+@media (max-width: 480px) {
+
+  /* Force single column layout */
+  .tp-aboutus-mvv,
+  .tp-aboutus-mvv-reverse {
+    display: flex;
+    flex-direction: column; /* stack items vertically */
+    text-align: center;
+    gap: 1.5rem;
+    width: 100%;
+  }
+
+  /* Content section full width */
+  .tp-aboutus-mvv-content {
+    width: 100%;
+    order: 1; /* make sure content comes first */
+  }
+
+  .tp-aboutus-mvv-content h3 {
+    font-size: 1.5rem;
+  }
+
+  .tp-aboutus-mvv-content p {
+    padding: 1rem 1rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    text-align: center;
+  }
+
+  /* Image section full width */
+  .tp-aboutus-mvv-image,
+  .tp-mission-mvv-media {
+    width: 100%;
+    order: 2; /* image comes after text */
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  .tp-aboutus-mvv-image img,
+  .tp-aboutus-mvv-image video,
+  .tp-mission-mvv-media img {
+    width: 90%; /* scale down image to prevent overflow */
+    max-width: 300px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+}
+
+
+  /* Why Choose Us */
+  .tp-aboutus-why-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .tp-aboutus-why-card {
+    padding-left: 35px;
+  }
+
+  .tp-aboutus-why-num {
+    font-size: 1rem;
+  }
+
+  .tp-aboutus-why-num::after {
+    width: 20px;
+    right: -25px;
+  }
+
+  /* Soft Stats */
+  .tp-aboutus-soft-stats {
+    padding: 40px 3%;
+  }
+
+  .tp-aboutus-soft-stats-title {
+    font-size: 1.6rem;
+    margin-bottom: 40px;
+  }
+
+  .tp-aboutus-soft-stats-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .tp-soft-stat {
+    padding: 20px 15px;
+  }
+
+  .tp-soft-stat h3 {
+    font-size: 1.8rem;
+  }
+
+  .tp-soft-stat p {
+    font-size: 0.85rem;
+  }
+
+  /* CTA Section */
+  .tp-aboutus-cta h2 {
+    font-size: 1.5rem;
+  }
+
+  .tp-aboutus-cta p {
+    font-size: 0.9rem;
+  }
+
+  .tp-aboutus-cta-btn {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.85rem;
+  }
+
+  /* Magic underline */
+  .magic-underline-one {
+    width: 80px;
+  }
+}
+
