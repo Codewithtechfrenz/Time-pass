@@ -24,6 +24,7 @@ DELIVERY PAGE CSS
   background: #ffffff;
   color: #7B542F;
   overflow: hidden;
+  font-family: "Figtree", sans-serif;
 }
 
 /* Transparent image */
@@ -75,9 +76,9 @@ DELIVERY PAGE CSS
 .feature-text h3 {
   margin: 0 0 6px;
   font-size: 25px;
-  font-family: "Changa", sans-serif;
+   font-family: "Figtree", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 600;
+  font-weight: 700;
   font-style: normal;
 }
 
@@ -85,7 +86,7 @@ DELIVERY PAGE CSS
   margin: 0;
   font-size: 16px;
   color: #3E5F44;
-  line-height: 0.5;
+  line-height: 0.8;
   font-weight: bolder;
 }
 

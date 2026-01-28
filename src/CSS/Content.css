@@ -237,14 +237,185 @@
 }
 
 /* ===============================
-   RESPONSIVE
+   RESPONSIVE — LARGE DESKTOP (1440px+)
 ================================ */
-@media (max-width: 768px) {
-  .stats-section {
-    flex-direction: column;
+@media (min-width: 1440px) {
+  .image-text-container {
+    max-width: 1400px;
   }
 
   .left-content h2 {
-    font-size: 30px;
+    font-size: 48px;
+  }
+
+  .right-image img {
+    min-height: 450px;
   }
 }
+
+/* ===============================
+   RESPONSIVE — LAPTOP (1024px–1439px)
+================================ */
+@media (max-width: 1439px) {
+  .image-text-container {
+    gap: 30px;
+  }
+
+  .left-content {
+    padding: 40px;
+  }
+
+  .left-content h2 {
+    font-size: 40px;
+  }
+
+  .stats-section {
+    gap: 50px;
+  }
+
+  .right-image img {
+    min-height: 380px;
+    margin-left: 30px;
+  }
+}
+
+/* ===============================
+   RESPONSIVE — TABLET (768px–1023px)
+================================ */
+@media (max-width: 1023px) {
+  .image-text-container {
+    flex-direction: column;
+    padding: 25px;
+    gap: 30px;
+  }
+
+  .left-content {
+    padding: 30px;
+    text-align: center;
+  }
+
+  .text-row {
+    justify-content: center;
+    text-align: left;
+  }
+
+  .stats-section {
+    justify-content: center;
+    gap: 40px;
+  }
+
+  .cta-btn-pill {
+    margin-top: 30px;
+  }
+
+  .right-image img {
+    width: 100%;
+    min-height: 320px;
+    margin-left: 0;
+    border-radius: 12px;
+  }
+}
+
+/* ===============================
+   RESPONSIVE — MOBILE (≤767px)
+================================ */
+@media (max-width: 767px) {
+  .image-text-wrapper {
+    padding: 60px 16px;
+  }
+
+  .image-text-container {
+    padding: 20px;
+  }
+
+  .left-content {
+    padding: 20px;
+  }
+
+  .left-content h2 {
+    font-size: 28px;
+  }
+
+  .text-row img {
+    width: 26px;
+    height: 26px;
+  }
+
+  .text-row p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .stats-section {
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+  }
+
+  .stat-number {
+    font-size: 42px;
+  }
+
+  .cta-btn-pill {
+    justify-content: center;
+  }
+
+  .right-image img {
+    min-height: 260px;
+  }
+}
+
+/* ===============================
+   RESPONSIVE — SMALL MOBILE (≤480px)
+================================ */
+@media (max-width: 480px) {
+  .left-content h2 {
+    font-size: 24px;
+  }
+
+  .text-row {
+    gap: 10px;
+  }
+
+  .text-row p {
+    font-size: 13px;
+  }
+
+  .stat-number {
+    font-size: 36px;
+  }
+
+  .stat-text {
+    font-size: 13px;
+  }
+
+  .cta-btn-pill {
+    font-size: 13px;
+    padding-left: 16px;
+  }
+
+  .arrow-circle {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
+
+  .right-image img {
+    min-height: 220px;
+  }
+}
+
+/* ===============================
+   TOUCH DEVICE SAFETY
+================================ */
+@media (hover: none) {
+  .cta-btn-pill:hover {
+    transform: none;
+    box-shadow: 0 8px 18px rgba(123, 84, 47, 0.4);
+  }
+
+  .cta-btn-pill:hover .arrow-circle {
+    transform: none;
+  }
+}
+

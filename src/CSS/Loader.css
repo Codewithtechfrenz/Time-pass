@@ -1,0 +1,153 @@
+/* Container to center everything */
+.loader-container {
+  display: flex;
+  flex-direction: column; /* stack loader and text vertically */
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* full screen height */
+  width: 100vw;
+  background: #ffffff; /* optional background */
+}
+
+/* Coffee Loader Styles */
+.coffeeloader {
+  position: relative;
+  width: 120px;
+  height: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Steam Animations */
+.steam {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+
+.steam div {
+  width: 4px;
+  height: 20px;
+  background: #bbb;
+  border-radius: 50%;
+  margin: 0 3px;
+  animation: rise 1.2s infinite;
+  opacity: 0;
+}
+
+.smoke1 { animation-delay: 0s; }
+.smoke2 { animation-delay: 0.3s; }
+.smoke3 { animation-delay: 0.6s; }
+
+@keyframes rise {
+  0% { transform: translateY(0) scaleX(1); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(-30px) scaleX(1.2); opacity: 0; }
+}
+
+/* Cup Container */
+.cupcontainer {
+  position: relative;
+  width: 60px;
+  height: 50px;
+  margin-bottom: 5px;
+}
+
+.cup {
+  width: 100%;
+  height: 100%;
+  background: #6b4f3f;
+  border-radius: 0 0 10px 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.glance {
+  width: 20px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.handle {
+  width: 12px;
+  height: 20px;
+  border: 4px solid #6b4f3f;
+  border-left: none;
+  border-bottom-right-radius: 15px;
+  border-top-right-radius: 15px;
+  position: absolute;
+  right: -14px;
+  top: 10px;
+}
+
+/* Plate */
+.plate {
+  width: 80px;
+  height: 10px;
+  background: #8b8b8b;
+  border-radius: 50%;
+  margin-bottom: 5px;
+}
+
+/* Bottom shadow */
+.bottom {
+  width: 100px;
+  height: 6px;
+  background: rgba(0,0,0,0.1);
+  border-radius: 50%;
+}
+
+/* Loader Text */
+.loader-text {
+  font-size: 50px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 10px;
+  text-align: center;
+  font-family: "Figtree", sans-serif;
+}
+
+/* Fully responsive */
+@media (max-width: 768px) {
+  .coffeeloader {
+    width: 90px;
+    height: 110px;
+  }
+  .cupcontainer {
+    width: 45px;
+    height: 38px;
+  }
+  .plate {
+    width: 60px;
+    height: 8px;
+  }
+  .loader-text {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .coffeeloader {
+    width: 70px;
+    height: 90px;
+  }
+  .cupcontainer {
+    width: 35px;
+    height: 30px;
+  }
+  .plate {
+    width: 50px;
+    height: 6px;
+  }
+  .loader-text {
+    font-size: 0.9rem;
+  }
+}

@@ -1,23 +1,30 @@
+// src/components/Footer.jsx
 import React from "react";
-import { FaMapMarkerAlt, FaEnvelope, FaPhoneAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import logo from "../Image/Logo.png";
 import {
+  FaMapMarkerAlt,
+  FaEnvelope,
+  FaPhoneAlt,
   FaFacebookF,
   FaTwitter,
   FaInstagram,
   FaYoutube,
 } from "react-icons/fa";
-import '../CSS/Footer.css';
+import logo from "../Image/Logo.png";
+import "../CSS/Footer.css";
 
 const Footer = () => {
+  // helper function for smooth scroll
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <footer className="footer-wrapper">
       <div className="footer-card">
-
-        {/* LOGO ABOVE LEFT SECTION */}
+        {/* LOGO */}
         <div className="footer-top-logo">
-          <img src={logo} alt="Time Pass Logo" />
+          <img src={logo} alt="TimePass Logo" />
         </div>
 
         {/* LEFT */}
@@ -40,46 +47,66 @@ const Footer = () => {
         {/* CENTER */}
         <div className="footer-center">
           <h4>Pages</h4>
-          <ul>
-  <li>
-    <a href="/">Home</a>
-  </li>
-  <li>
-    <a href="/products">Products</a>
-  </li>
-  <li>
-    <a href="/About us">About us</a>
-  </li>
-  <li>
-    <a href="/contact us">Contact us</a>
-  </li>
-</ul>
+          <ul className="footer-links">
+            <li>
+              <Link to="/" onClick={scrollToTop}>Home</Link>
+            </li>
+            <li>
+              <Link to="/products" onClick={scrollToTop}>Products</Link>
+            </li>
+            <li>
+              <Link to="/about" onClick={scrollToTop}>About</Link>
+            </li>
+            <li>
+              <Link to="/contact" onClick={scrollToTop}>Contact</Link>
+            </li>
+          </ul>
         </div>
 
         {/* RIGHT */}
         <div className="footer-right">
-  <h4>Contact</h4>
+          <h4>Contact</h4>
 
-  <p className="footer-contact">
-    <FaMapMarkerAlt className="footer-icon" />
-    <span>
-      Amirtha Nagar 4th Street<br />
-      H.M.S Colony, Madurai – 16
-    </span>
-  </p>
+          <p className="footer-contact">
+            <FaMapMarkerAlt className="footer-icon" />
+            <span>
+              Karthick Kannan .R, <br />
+              Amirtha Nagar 4th Street, <br />
+              H.M.S Colony, Madurai – 16.
+            </span>
+          </p>
 
-  <p className="footer-contact">
-    <FaEnvelope className="footer-icon" />
-    <span>timepass@gmail.com</span>
-  </p>
+          <p className="footer-contact">
+            <FaEnvelope className="footer-icon" />
+            <span>timepasspkarthick@gmail.com</span>
+          </p>
 
-  <p className="footer-contact">
-    <FaPhoneAlt className="footer-icon" />
-    <span>(790) 402-3603</span>
-  </p>
-</div>
+          <p className="footer-contact">
+            <FaPhoneAlt className="footer-icon" />
+            <span>(790) 402-3603</span>
+          </p>
+        </div>
 
+        {/* COPYRIGHT */}
+        <div className="footer-bottom">
+          <p className="footer-bottom-content">
+            <span className="footer-left-text">
+              © All Rights Reserved. TimePass Tea & Coffee Shop {new Date().getFullYear()}.
+            </span>
 
+            <span className="footer-right-text">
+              Powered By{" "}
+              <a
+                href="https://techfrenz.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-link"
+              >
+                <strong>Techfrenz Tech Solutions</strong>
+              </a>
+            </span>
+          </p>
+        </div>
       </div>
     </footer>
   );

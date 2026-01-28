@@ -60,10 +60,19 @@ const ImageTextSection = ({ imageLeft = false }) => {
             ))}
           </div>
 
-          <button className="cta-btn-pill">
-            <span>Learn More</span>
-            <span className="arrow-circle">↗</span>
-          </button>
+          <button
+  className="cta-btn-pill"
+  onClick={() => {
+    console.log("clicked");
+    window.location.href = "/about";
+  }}
+>
+  <span>Learn More</span>
+  <span className="arrow-circle">↗</span>
+</button>
+
+
+
         </div>
 
         <div className="right-image">

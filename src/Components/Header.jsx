@@ -1,55 +1,96 @@
 // src/components/Header.jsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../Image/Logo.png";
-import { FaPhoneAlt, FaEnvelope, FaHome, FaCoffee, FaInfoCircle, FaEnvelopeOpenText } from "react-icons/fa";
-import '../CSS/Header.css';
+import {
+  FaPhoneAlt,
+  FaHome,
+  FaCoffee,
+  FaInfoCircle,
+  FaEnvelopeOpenText
+} from "react-icons/fa";
+import "../CSS/Header.css";
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
 
+  /* ===== Sticky header scroll effect ===== */
+  const headerRef = React.useRef(null);
+
+useEffect(() => {
+  const handleScroll = () => {
+    headerRef.current?.classList.toggle("scrolled", window.scrollY > 20);
+  };
+  window.addEventListener("scroll", handleScroll);
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
+
+[...document.querySelectorAll("*")].filter(el => {
+  const s = getComputedStyle(el);
+  return (s.overflowY === "auto" || s.overflowY === "scroll") && el.scrollHeight > el.clientHeight;
+});
+
+
+
+  // smooth scroll helper
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <>
-      <header className="header" role="banner">
-        <div className="container nav">
+      <header className="header-main" role="banner">
+        <div className="container-nav">
           {/* Brand / Logo */}
-          <Link to="/" className="brand" onClick={() => setMobileOpen(false)}>
-            <img src={logo} alt="Time Pass Logo" className="logo" />
-            <h1>Time Pass</h1>
+          <Link to="/" className="brand-main" onClick={() => { setMobileOpen(false); scrollToTop(); }}>
+            <img src={logo} alt="Time Pass Logo" className="logo-main" />
           </Link>
 
           {/* Navigation Links */}
-          <nav className={`nav-links ${mobileOpen ? "open" : ""}`}>
-            <Link to="/" onClick={() => setMobileOpen(false)}>Home</Link>
-            <Link to="/products" onClick={() => setMobileOpen(false)}>Products</Link>
-            <Link to="/about-us" onClick={() => setMobileOpen(false)}>About</Link>
-            <Link to="/contact-us" onClick={() => setMobileOpen(false)}>Contact</Link>
+          <nav className={`nav-links-main ${mobileOpen ? "open" : ""}`}>
+            <Link to="/" onClick={() => { setMobileOpen(false); scrollToTop(); }}>Home</Link>
+            <Link to="/products" onClick={() => { setMobileOpen(false); scrollToTop(); }}>Products</Link>
+            <Link to="/about" onClick={() => { setMobileOpen(false); scrollToTop(); }}>About</Link>
+            <Link to="/contact" onClick={() => { setMobileOpen(false); scrollToTop(); }}>Contact</Link>
           </nav>
 
           {/* Contact icons */}
-          <div className="contact-icons">
-            <div className="tooltip">
-              <a href="tel:+911234567890" className="icon-text">
+          <div className="contact-icons-main">
+            <div className="tooltip-main">
+              <a href="tel:+917904023603" className="icon-text-main">
                 <FaPhoneAlt size={18} />
-                <span className="icon-label">Call Us</span>
+                <span className="icon-label-main">Call Us</span>
               </a>
-              <span className="tooltip-text">+91 12345 67890</span>
+              <span className="tooltip-text-main">+91 79040 23603</span>
             </div>
-            <div className="tooltip">
-              <a href="mailto:info@coffeecorner.com" className="icon-text">
-                <FaEnvelope size={18} />
-                <span className="icon-label">Email Now</span>
-              </a>
-              <span className="tooltip-text">info@coffeecorner.com</span>
-            </div>
+
+            <div className="tooltip-main">
+  <a
+    href="https://mail.google.com/mail/?view=cm&fs=1&to=timepasspkarthick@gmail.com"
+    className="icon-text-main"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <FaEnvelopeOpenText size={18} />
+
+    <span className="icon-label-main">Email</span>
+  </a>
+
+  <span className="tooltip-text-main">
+    timepasspkarthick@gmail.com
+  </span>
+</div>
+
+
+
           </div>
 
           {/* Mobile hamburger */}
           <button
-            className="nav-toggle"
+            className="nav-toggle-main"
             aria-label="Toggle navigation"
-            onClick={() => setMobileOpen((prev) => !prev)}
+            onClick={() => setMobileOpen(prev => !prev)}
           >
             <span />
             <span />
@@ -58,23 +99,21 @@ const Header = () => {
         </div>
       </header>
 
-      {/* ===============================
-          MOBILE & TABLET BOTTOM NAV
-      =============================== */}
-      <nav className="bottom-nav">
-        <Link to="/" className={location.pathname === "/" ? "active" : ""}>
+      {/* ===== Mobile & Tablet Bottom Nav ===== */}
+      <nav className="bottom-nav-main">
+        <Link to="/" className={location.pathname === "/" ? "active" : ""} onClick={scrollToTop}>
           <FaHome size={20} />
           <span>Home</span>
         </Link>
-        <Link to="/products" className={location.pathname === "/products" ? "active" : ""}>
+        <Link to="/products" className={location.pathname === "/products" ? "active" : ""} onClick={scrollToTop}>
           <FaCoffee size={20} />
           <span>Products</span>
         </Link>
-        <Link to="/about-us" className={location.pathname === "/about-us" ? "active" : ""}>
+        <Link to="/about" className={location.pathname === "/about-us" ? "active" : ""} onClick={scrollToTop}>
           <FaInfoCircle size={20} />
           <span>About</span>
         </Link>
-        <Link to="/contact-us" className={location.pathname === "/contact-us" ? "active" : ""}>
+        <Link to="/contact" className={location.pathname === "/contact-us" ? "active" : ""} onClick={scrollToTop}>
           <FaEnvelopeOpenText size={20} />
           <span>Contact</span>
         </Link>

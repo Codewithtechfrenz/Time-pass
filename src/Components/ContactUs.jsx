@@ -3,19 +3,16 @@ import Header from "./Header";
 import PageScrollProgress from "./PageScrollProgress";
 import Footer from "./Footer";
 import { FiPhone, FiMail, FiMapPin } from "react-icons/fi";
-import '../CSS/ContactUs.css';
+import emailjs from "emailjs-com";
+import "../CSS/ContactUs.css";
 
 const ContactUs = () => {
-  /* ===============================
-     FORM STATES
-  ================================ */
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState(false);
+  const [rating, setRating] = useState(0);
 
-  /* ===============================
-     SCROLL ANIMATIONS
-  ================================ */
+  /* ================= Scroll animations ================= */
   useEffect(() => {
     const elements = document.querySelectorAll(
       ".tp-contact-card, .tp-animate-hero, .tp-animate-form, .tp-animate-map"
@@ -23,7 +20,7 @@ const ContactUs = () => {
 
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach(entry => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("show");
           }
@@ -32,118 +29,170 @@ const ContactUs = () => {
       { threshold: 0.2 }
     );
 
-    elements.forEach(el => observer.observe(el));
+    elements.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
 
-  /* ===============================
-     FORM SUBMIT HANDLER
-  ================================ */
+  /* ================= Form submit ================= */
   const handleSubmit = (e) => {
     e.preventDefault();
-    const form = e.target;
 
-    const name = form[0].value;
-    const email = form[1].value;
-    const message = form[2].value;
+    const formData = new FormData(e.target);
+    const name = formData.get("name");
+    const email = formData.get("email");
+    const message = formData.get("message");
 
-    // ❌ Validation error → shake
-    if (!name || !email || !message) {
+    if (!name || !email || !message || rating === 0) {
       setError(true);
       setTimeout(() => setError(false), 500);
       return;
     }
 
-    // ⏳ Loading spinner
     setLoading(true);
 
-    setTimeout(() => {
-      setLoading(false);
-      setSubmitted(true);
+    emailjs
+      .send(
+        "service_ivljx4q",
+        "template_o9sw3cg",
+        { name, email, message, rating },
+        "k2pcD_G5kwFRVV9Fl"
+      )
+      .then(() => {
+        return emailjs.send(
+          "service_ivljx4q",
+          "template_1tzhuzf",
+          { name, email, message, rating },
+          "k2pcD_G5kwFRVV9Fl"
+        );
+      })
+      .then(() => {
+        setLoading(false);
+        setSubmitted(true);
 
-      // Reset after success
-      setTimeout(() => {
-        setSubmitted(false);
-        form.reset();
-      }, 3500);
-    }, 1500);
+        setTimeout(() => {
+          setSubmitted(false);
+          setRating(0);
+          e.target.reset();
+        }, 4000);
+      })
+      .catch((err) => {
+        console.error("EmailJS Error:", err);
+        setLoading(false);
+        alert("Message failed to send. Please try again.");
+      });
   };
 
   return (
     <div className="tp-contact-page">
       <Header />
       <PageScrollProgress />
-      {/* Hero */}
-      <div className="tp-contact-hero tp-animate-hero"></div>
 
-      {/* Contact Cards */}
+      {/* ================= HERO ================= */}
+      <div className="tp-contact-hero tp-animate-hero">
+      </div>
+
+      {/* ================= CONTACT CARDS ================= */}
       <div className="tp-contact-cards">
         <div className="tp-contact-card">
-          <div className="tp-contact-icon"><FiPhone /></div>
+          <div className="tp-contact-icon">
+            <FiPhone />
+          </div>
           <h3>Call Us</h3>
-          <p><a href="tel:+919876543210">+91 98765 43210</a></p>
+          <p>
+            <a href="tel:+917904023603">+91 79040 23603</a>
+          </p>
         </div>
 
         <div className="tp-contact-card">
-          <div className="tp-contact-icon"><FiMail /></div>
+          <div className="tp-contact-icon">
+            <FiMail />
+          </div>
           <h3>Email Us</h3>
-          <p><a href="mailto:timepass@gmail.com">timepass@gmail.com</a></p>
+          <p>
+            <a
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=timepasspkarthick@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              timepasspkarthick@gmail.com
+            </a>
+          </p>
         </div>
 
         <div className="tp-contact-card">
-          <div className="tp-contact-icon"><FiMapPin /></div>
+          <div className="tp-contact-icon">
+            <FiMapPin />
+          </div>
           <h3>Visit Us</h3>
           <p>
-            Amirtha Nagar 4th Street<br />
-            H.M.S Colony, Madurai – 16
+            Karthick Kannan .R, <br />
+            Amirtha Nagar 4th Street, <br />
+            H.M.S Colony, Madurai – 16.
           </p>
         </div>
       </div>
 
-      {/* Contact Form */}
+      {/* ================= CONTACT FORM ================= */}
       <div className="tp-contact-form-wrapper tp-animate-form">
         <h2>Send Us a Message</h2>
-
         <form
           className={`tp-contact-form ${error ? "shake" : ""}`}
           onSubmit={handleSubmit}
         >
-          <input type="text" placeholder="Your Name" />
-          <input type="email" placeholder="Your Email" />
-          <textarea placeholder="Your Message" rows="5"></textarea>
+          <input name="name" type="text" placeholder="Your Name" />
+          <input name="email" type="email" placeholder="Your Email" />
+          <textarea
+            name="message"
+            placeholder="Your Message"
+            rows="5"
+          ></textarea>
+
+          {/* ⭐ RATING */}
+          <div className="tp-rating">
+            <p>Rate Your Experience</p>
+            <div className="stars">
+              {[1, 2, 3, 4, 5].map((star) => (
+                <span
+                  key={star}
+                  className={star <= rating ? "star active" : "star"}
+                  onClick={() => setRating(star)}
+                >
+                  ★
+                </span>
+              ))}
+            </div>
+          </div>
 
           <button type="submit" disabled={loading || submitted}>
-            {loading ? <span className="spinner"></span> : submitted ? "Sent ✓" : "Send Message"}
+            {loading ? (
+              <span className="spinner"></span>
+            ) : submitted ? (
+              "Sent ✓"
+            ) : (
+              "Send Message"
+            )}
           </button>
 
           {submitted && (
-            <>
-              <div className="tp-form-success">
-                <span className="checkmark">✓</span>
-                <p>Thank you! We’ll get back to you shortly.</p>
-              </div>
-
-              {/* 🎉 Confetti */}
-              <div className="confetti">
-                {Array.from({ length: 20 }).map((_, i) => (
-                  <span key={i}></span>
-                ))}
-              </div>
-            </>
+            <div className="tp-form-success">
+              <span className="checkmark">✓</span>
+              <p>Your message has been sent successfully!</p>
+              <p>Thank you for contacting us. We will get back to you shortly.</p>
+              <p>Rating: ⭐ {rating}/5</p>
+            </div>
           )}
         </form>
       </div>
 
-      {/* Google Map */}
+      {/* ================= GOOGLE MAP ================= */}
       <div className="tp-contact-map tp-animate-map">
         <iframe
-          title="Google Map"
-          src="https://www.google.com/maps?q=New+Delhi&output=embed"
-          width="100%"
-          height="400"
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d694.7428080036862!2d78.08397352044996!3d9.929060739563175!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b00cf007a82483d%3A0x874a1e6b0f62b169!2sTime%20Pass!5e0!3m2!1sen!2sus!4v1769242200622!5m2!1sen!2sus"
           style={{ border: 0 }}
-          allowFullScreen=""
+          allowFullScreen
           loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          title="Time Pass Location Map"
         ></iframe>
       </div>
 

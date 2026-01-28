@@ -144,35 +144,140 @@
   background: #1f170f;
 }
 
-/* ===============================
-   RESPONSIVE CSS (ADDED ONLY)
-================================ */
+/* ======================================
+   LARGE SCREENS / 4K (≥1600px)
+====================================== */
+@media (min-width: 1600px) {
+  .offer-section {
+    padding: 120px 40px;
+  }
 
-/* LAPTOP */
-@media (max-width: 1200px) {
+  .offer-content {
+    max-width: 1400px;
+    margin: auto;
+    padding: 60px;
+  }
+
   .offer-text h2 {
-    font-size: 42px;
+    font-size: 56px;
+  }
+
+  .offer-text p {
+    font-size: 18px;
   }
 
   .offer-image img {
-    max-width: 420px;
+    max-width: 520px;
   }
 }
 
-/* TABLET */
+/* ======================================
+   DESKTOP (1200px – 1599px)
+====================================== */
+@media (max-width: 1599px) {
+  .offer-text h2 {
+    font-size: 48px;
+  }
+
+  .offer-image img {
+    max-width: 460px;
+  }
+}
+
+/* ======================================
+   LAPTOP (992px – 1199px) — TABLET STYLE
+====================================== */
+@media (min-width: 992px) and (max-width: 1199px) {
+
+  /* Offer section content container */
+  .offer-content {
+    flex-direction: column;        /* Stack image + text */
+    align-items: center;           /* Center content horizontally */
+    text-align: center;            /* Center text */
+    gap: 32px;                     /* Space between elements */
+    padding: 40px 30px;            /* Reduce padding like tablet */
+    max-height: none;              /* Remove fixed height */
+  }
+
+  /* Offer image adjustments */
+  .offer-image {
+    position: relative;            /* Reset position */
+    top: 0;
+    left: 0;
+    margin-bottom: -20px;          /* Optional overlap like tablet */
+    justify-content: center;
+    flex-shrink: 0;
+    max-width: 360px;              /* Tablet-like size */
+  }
+
+  .offer-image img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Text content adjustments */
+  .offer-text {
+    text-align: center;            /* Center text */
+    max-width: 500px;              /* Restrict width for readability */
+  }
+
+  .offer-text h2 {
+    font-size: 34px;
+    line-height: 1.25;
+    margin-bottom: 16px;
+  }
+
+  .offer-text p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  /* Form layout */
+  .offer-form {
+    flex-direction: row;           /* Input + Button in same row */
+    justify-content: center;       /* Center form */
+    gap: 12px;                     /* Space between input and button */
+    width: auto;
+    flex-wrap: wrap;               /* Wrap if very small */
+  }
+
+  .offer-form input {
+    width: 300px;                  /* Input width like tablet */
+    padding: 13px 18px;
+    font-size: 14px;
+    border-radius: 9px;
+  }
+
+  .offer-form button {
+    padding: 13px 22px;
+    font-size: 14px;
+    border-radius: 9px;
+    white-space: nowrap;
+  }
+}
+
+
+/* ======================================
+   TABLET (768px – 991px)
+====================================== */
 @media (max-width: 991px) {
+  .offer-section {
+    padding: 90px 24px;
+  }
+
   .offer-content {
     flex-direction: column;
+    text-align: center;
     max-height: none;
     padding: 40px 30px;
-    text-align: center;
+    gap: 32px;
   }
 
   .offer-image {
     position: relative;
     top: 0;
     left: 0;
-    margin-bottom: -20px;
     justify-content: center;
   }
 
@@ -190,163 +295,71 @@
 
   .offer-form {
     justify-content: center;
-  }
-}
-
-/* MOBILE */
-@media (max-width: 767px) {
-  .offer-section {
-    padding: 70px 15px;
-  }
-
-  .offer-content {
-    padding: 30px 20px;
-  }
-
-  .offer-image img {
-    max-width: 260px;
-  }
-
-  .offer-text h2 {
-    font-size: 48px;
-    line-height: 1.3;
-  }
-
-  .offer-text p {
-    font-size: 13px;
-  }
-
-  .offer-form {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .offer-form input,
-  .offer-form button {
-    width: 100%;
-  }
-}
-
-/* EXTRA SMALL */
-@media (max-width: 480px) {
-  .offer-text h2 {
-    font-size: 25px;
-  }
-
-  .offer-image img {
-    max-width: 220px;
-  }
-}
-
-/* ======================================
-   PIXEL PERFECT MOBILE TUNING
-====================================== */
-@media (max-width: 480px) {
-
-  .offer-section {
-    padding: 55px 12px;
-  }
-
-  .offer-content {
-    padding: 26px 18px;
-    border-radius: 12px;
-    gap: 20px;
-  }
-
-  /* IMAGE */
-  .offer-image {
-    margin-bottom: -10px;
-  }
-
-  .offer-image img {
-    max-width: 210px;
-  }
-
-  /* TEXT */
-  .offer-text h2 {
-    font-size: 21px;
-    line-height: 1.25;
-    margin-bottom: 12px;
-  }
-
-  .offer-text p {
-    font-size: 12.5px;
-    line-height: 1.55;
-    margin-bottom: 22px;
-  }
-
-  /* FORM */
-  .offer-form {
-    gap: 12px;
-  }
-
-  .offer-form input {
-    padding: 13px 16px;
-    font-size: 13px;
-    border-radius: 8px;
-  }
-
-  .offer-form button {
-    padding: 13px 16px;
-    font-size: 13px;
-    border-radius: 8px;
-  }
-}
-
-/* ======================================
-   PIXEL PERFECT TABLET TUNING
-====================================== */
-@media (min-width: 768px) and (max-width: 1024px) {
-
-  .offer-section {
-    padding: 90px 24px;
-  }
-
-  .offer-content {
-    padding: 40px 32px;
-    gap: 35px;
-    max-height: 280px;
-    border-radius: 14px;
-  }
-
-  /* IMAGE */
-  .offer-image {
-    top: -60px;
-    left: 40px;
-  }
-
-  .offer-image img {
-    max-width: 360px;
-  }
-
-  /* TEXT */
-  .offer-text h2 {
-    font-size: 36px;
-    line-height: 1.25;
-    margin-bottom: 16px;
-  }
-
-  .offer-text p {
-    font-size: 14px;
-    line-height: 1.6;
-    margin-bottom: 26px;
-  }
-
-  /* FORM */
-  .offer-form {
-    gap: 12px;
+    gap: 14px;
   }
 
   .offer-form input {
     width: 300px;
-    padding: 13px 18px;
-    font-size: 14px;
-    border-radius: 9px;
+  }
+}
+
+/* ===============================
+   OFFER FORM — UNIVERSAL RESPONSIVE
+================================ */
+
+/* Base form layout */
+.offer-form {
+  display: flex;
+  flex-direction: row;      /* Keep input + button in same row */
+  justify-content: center;  /* Center horizontally */
+  gap: 10px;                /* Space between input and button */
+  flex-wrap: wrap;          /* Wrap on super small screens */
+  width: 100%;
+  max-width: 480px;         /* Restrict max width */
+  margin: 0 auto;           /* Center the form */
+}
+
+/* Input field */
+.offer-form input {
+  flex: 1;                  /* Input grows to available space */
+  min-width: 180px;         /* Minimum input width */
+  padding: 13px 16px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Subscribe button */
+.offer-form button {
+  flex-shrink: 0;           /* Button keeps its size */
+  padding: 13px 22px;
+  font-size: 14px;
+  border-radius: 8px;
+  background: #7B542F;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;      /* Prevent wrapping */
+}
+
+/* ===============================
+   MOBILE ADJUSTMENTS (≤480px)
+================================ */
+@media (max-width: 480px) {
+  .offer-form {
+    gap: 8px;               /* Reduce gap for small screens */
+  }
+
+  .offer-form input {
+    min-width: 140px;       /* Shrink input slightly */
+    font-size: 13px;
+    padding: 12px 14px;
   }
 
   .offer-form button {
-    padding: 13px 22px;
-    font-size: 14px;
-    border-radius: 9px;
+    font-size: 13px;
+    padding: 12px 16px;
   }
 }
+

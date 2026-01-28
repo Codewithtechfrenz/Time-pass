@@ -1,32 +1,14 @@
-import { useEffect, useState } from "react";
-import "../CSS/PageScrollProgress.css";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
-const PageScrollProgress = () => {
-  const [progress, setProgress] = useState(0);
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      const docHeight =
-        document.documentElement.scrollHeight -
-        document.documentElement.clientHeight;
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
-      const scrollPercent = (scrollTop / docHeight) * 100;
-      setProgress(scrollPercent);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  return (
-    <div className="mobile-scroll-progress">
-      <span
-        className="mobile-scroll-progress-bar"
-        style={{ width: `${progress}%` }}
-      />
-    </div>
-  );
+  return null;
 };
 
-export default PageScrollProgress;
+export default ScrollToTop;

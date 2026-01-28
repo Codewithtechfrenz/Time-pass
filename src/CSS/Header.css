@@ -1,36 +1,25 @@
-/* ============================
- HEADER CSS
-===============================*/
-
-html {
-  scroll-behavior: smooth;
+body {
+  padding-top: 90px; /* header height */
 }
 
-.header {
-  color: #554736; /* Changed to match nav links for better contrast */
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-  position: sticky;
+
+/* =========================
+   HEADER MAIN STYLES
+========================= */
+.header-main {
+  position: fixed;
   top: 0;
-  z-index: 900;
-
-border-radius: 5px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(10.8px);
--webkit-backdrop-filter: blur(10.8px);
-/* Background image */
-
-
- background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  /* Glass effect */
-  backdrop-filter: blur(10.8px);
-  -webkit-backdrop-filter: blur(10.8px);
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background-color: whitesmoke;
 }
 
-/* Flex container */
-.header .container.nav {
+
+/* =========================
+   CONTAINER
+========================= */
+.container-nav {
   max-width: 1600px;
   margin: 0 auto;
   padding: 8px 16px;
@@ -39,90 +28,93 @@ backdrop-filter: blur(10.8px);
   justify-content: space-between;
 }
 
-/* ===== BRAND / LOGO ===== */
-.brand {
+/* =========================
+   BRAND / LOGO
+========================= */
+.brand-main {
   display: inline-flex;
   align-items: center;
   text-decoration: none;
-  color: black;
   gap: 8px;
 }
 
-.logo {
-  width: 40px;
-  height: 40px;
-  /* object-fit: contain; */
+.logo-main {
+  width: 50px;
+  height: 50px;
 }
 
-.brand h1 {
-  font-size: 0px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  margin: 0;
+.brand-text {
+  font-size: 16px;
+  font-weight: 1200;
   color: #ffbf36;
-   font-family: "Figtree", sans-serif;
+  font-family: "Figtree", sans-serif;
+  margin: 0;
 }
 
-/* ===== NAV LINKS ===== */
-.nav-links {
+/* =========================
+   NAV LINKS
+========================= */
+.nav-links-main {
   display: flex;
   gap: 16px;
   align-items: center;
 }
 
-.nav-links a {
-  color: #7B542F;
+.nav-links-main a {
   text-decoration: none;
-  font-size: 50px;
-  padding: 4px 8px;
-  border-radius: 3px;
-  transition: background 0.2s ease, color 0.2s ease;
-   font-family: "Figtree", sans-serif;
+  color: #7B542F;
+  font-size: 16px;
   font-weight: 800;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-family: "Figtree", sans-serif;
+  transition: color 0.2s ease, background 0.2s ease;
 }
 
-.nav-links a:hover {
-  /* background: rgba(58, 42, 42, 0.733); */
+.nav-links-main a:hover {
   color: #ffbf36;
 }
 
-/* ===== CONTACT ICONS + TOOLTIPS ===== */
-.contact-icons {
+/* =========================
+   CONTACT ICONS
+========================= */
+.contact-icons-main {
   display: flex;
-  gap: 35px;
+  gap: 30px;
   align-items: center;
+  margin-right: 40px;
 }
 
-.icon-text {
+.icon-text-main {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 5px;
   color: #7B542F;
+  font-size: 14px;
   text-decoration: none;
-  font-size: 13px;
-  font-family: "Geom", sans-serif;
 }
 
-.icon-text:hover {
+.icon-text-main:hover {
   color: #3E5F44;
 }
 
-.icon-label {
-  display: inline-block;
-   font-family: "Figtree", sans-serif;
+.icon-label-main {
+  font-family: "Figtree", sans-serif;
 }
 
-/* Tooltip wrapper */
-.tooltip {
+
+/* =========================
+   TOOLTIP
+========================= */
+.tooltip-main {
   position: relative;
 }
 
-/* Hidden tooltip text by default */
-.tooltip-text {
+.tooltip-text-main {
   visibility: hidden;
   opacity: 0;
   position: absolute;
-  bottom: -30px; /* Increased distance for better spacing */
+  bottom: -30px;
   left: 50%;
   transform: translateX(-50%);
   background-color: #333333;
@@ -133,11 +125,10 @@ backdrop-filter: blur(10.8px);
   white-space: nowrap;
   transition: opacity 0.2s ease;
   pointer-events: none;
-   font-family: "Figtree", sans-serif;
+  font-family: "Figtree", sans-serif;
 }
 
-/* Small arrow under tooltip */
-.tooltip-text::after {
+.tooltip-text-main::after {
   content: "";
   position: absolute;
   top: -4px;
@@ -148,244 +139,148 @@ backdrop-filter: blur(10.8px);
   border-color: transparent transparent #5f5f5f transparent;
 }
 
-/* Show tooltip on hover */
-.tooltip:hover .tooltip-text {
+.tooltip-main:hover .tooltip-text-main {
   visibility: visible;
   opacity: 1;
 }
 
-/* ===== MOBILE TOGGLE (HAMBURGER) ===== */
-.nav-toggle {
+/* =========================
+   MOBILE TOGGLE
+========================= */
+.nav-toggle-main {
   display: none;
   background: none;
   border: none;
-  padding: 4px;
-  margin-left: 8px;
   cursor: pointer;
+  padding: 4px;
 }
 
-.nav-toggle span {
+.nav-toggle-main span {
   display: block;
-  width: 20px;
+  width: 22px;
   height: 2px;
-  margin: 3px 0;
-  background-color: #f5e9da;
+  margin: 4px 0;
+  background-color: #7B542F;
 }
 
-/* ===== RESPONSIVE BEHAVIOR ===== */
-@media (max-width: 768px) {
-  .header .container.nav {
-    padding: 8px 10px;
-    position: relative;
-  }
-
-  .nav-links {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    left: 0;
-    flex-direction: column;
-    background: #3b2f2f;
-    padding: 8px 10px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    display: none;
-  }
-
-  .nav-links.open {
-    display: flex;
-  }
-
-  .contact-icons {
-    display: none;
-  }
-
-  .nav-toggle {
-    display: block;
-  }
+/* =========================
+   BOTTOM NAV (MOBILE/TABLET)
+========================= */
+.bottom-nav-main {
+  display: none;
 }
 
-/* ===============================
-   LARGE DESKTOP (1440px+)
-================================ */
+.bottom-nav-main a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #7B542F;
+  text-decoration: none;
+  font-size: 12px;
+  gap: 4px;
+  transition: all 0.2s ease;
+}
+
+.bottom-nav-main a.active,
+.bottom-nav-main a:hover {
+  color: #ffbf36;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+/* Large Desktop */
 @media (min-width: 1440px) {
-  .header .container.nav {
-    max-width: 1800px;
-    padding: 10px 24px;
-  }
-
-  .logo {
+  .logo-main {
     width: 75px;
     height: 75px;
   }
 
-  .nav-links a {
-    font-size: 17px;
-    padding: 6px 10px;
+  .nav-links-main a {
+    font-size: 18px;
+    padding: 8px 12px;
   }
 
-  .icon-text {
+  .icon-text-main {
     font-size: 14px;
   }
 }
 
-/* ===============================
-   DESKTOP (1280px – 1439px)
-================================ */
+/* Desktop & Laptop */
 @media (max-width: 1439px) {
-  .header .container.nav {
+  .container-nav {
     max-width: 1400px;
   }
 }
 
-/* ===============================
-   LAPTOP (1024px – 1279px)
-================================ */
-@media (max-width: 1279px) {
-  .logo {
-    width: 80px;
-    height: 80px;
+/* Tablet */
+@media (max-width: 1024px) {
+  .nav-links-main {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: rgba(59, 47, 47, 0.95);
+    display: none;
+    padding: 8px 10px;
+    border-top: 1px solid rgba(255,255,255,0.1);
   }
 
-  .nav-links a {
-    font-size: 15px;
+  .nav-links-main.open {
+    display: flex;
   }
 
-  .contact-icons {
-    gap: 10px;
-  }
-}
-
-/* ===============================
-   TABLET (768px – 1023px)
-================================ */
-@media (max-width: 1023px) {
-  .header {
-    border-radius: 0;
-  }
-
-  .header .container.nav {
-    padding: 8px 12px;
-  }
-
-  .nav-links a {
-    font-size: 14px;
-  }
-
-  .icon-label {
+  .contact-icons-main {
     display: none;
   }
-}
 
-/* ===============================
-   MOBILE (≤767px)
-================================ */
-@media (max-width: 767px) {
-  .logo {
-    width: 65px;
-    height: 65px;
+  .nav-toggle-main {
+    display: block;
   }
 
-  .brand {
-    gap: 6px;
-  }
-
-  .nav-links {
-    background: rgba(59, 47, 47, 0.95);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-  }
-
-  .nav-links a {
-    width: 100%;
-    text-align: center;
-    padding: 10px 0;
-    font-size: 15px;
-  }
-
-  .nav-toggle span {
-    background-color: #7B542F;
-  }
-}
-
-/* ===============================
-   SMALL MOBILE (≤480px)
-================================ */
-@media (max-width: 480px) {
-  .logo {
-    width: 55px;
-    height: 55px;
-  }
-
-  .nav-links a {
-    font-size: 14px;
-  }
-}
-
-/* ===============================
-   TOUCH DEVICE OPTIMIZATION
-================================ */
-@media (hover: none) {
-  .nav-links a:hover {
-    background: none;
-    color: #7B542F;
-  }
-
-  .tooltip:hover .tooltip-text {
-    visibility: hidden;
-    opacity: 0;
-  }
-}
-
-/* ===============================
-   BOTTOM NAVIGATION (MOBILE & TABLET ONLY)
-================================ */
-.bottom-nav {
-  display: none; /* hidden by default */
-}
-
-@media (max-width: 1023px) {
-  .bottom-nav {
+  .bottom-nav-main {
     display: flex;
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    background: #3b2f2f;
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
     justify-content: space-around;
-    align-items: center;
+    background: rgba(59, 47, 47, 0.9);
     padding: 5px 0;
-    z-index: 999;
+    z-index: 9999;
     backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    background: rgba(59, 47, 47, 0.51);
-border-radius: 10px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(10.3px);
--webkit-backdrop-filter: blur(10.3px);
-border: 1px solid rgba(59, 47, 47, 0.2);
-    
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .logo-main {
+    width: 55px;
+    height: 55px;
   }
 
-  .bottom-nav a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: #7B542F;
-    text-decoration: none;
-    font-size: 12px;
-    gap: 4px;
-    transition: all 0.2s ease;
+  .nav-links-main a {
+    font-size: 15px;
+    padding: 10px 0;
+    text-align: center;
   }
 
-  .bottom-nav a span {
-    font-family: "Figtree", sans-serif;
-    font-weight: 600;
+  .bottom-nav-main a span {
+    font-size: 11px;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .logo-main {
+    width: 50px;
+    height: 50px;
   }
 
-  .bottom-nav a.active,
-  .bottom-nav a:hover {
-    color: #ffbf36;
+  .nav-links-main a {
+    font-size: 14px;
   }
 }

@@ -18,6 +18,10 @@ import img6 from "../Image/Cardamom.png";
 import img7 from "../Image/Boost.png";
 import img8 from "../Image/Horlicks.png";
 import img9 from "../Image/LemonTea.png";
+import img10 from "../Image/Instant.png";
+import img11 from "../Image/Filter.png";
+import img12 from "../Image/Turmeric.png";
+import img13 from "../Image/Masala.png";
 
 /* ================= Products Data ================= */
 const productsData = [
@@ -25,66 +29,109 @@ const productsData = [
     name: "Milk",
     image: img4,
     desc: "Pure and hygienic milk, gently warmed to give you comfort and nourishment in every sip.",
-    half: "₹40",
-    full: "₹70",
+    ml500: "₹50",
+    ml750: "₹75",
+    litre1: "₹100",
   },
   {
     name: "Badam Milk",
     image: img3,
     desc: "A rich and creamy blend of milk and hand-picked almonds, perfect for a royal refreshment.",
-    half: "₹60",
-    full: "₹100",
+    ml500: "₹60",
+    ml750: "₹90",
+    litre1: "₹120",
   },
   {
     name: "Hot Tea",
     image: img1,
     desc: "A timeless tea experience brewed fresh to relax your mind and refresh your senses.",
-    half: "₹30",
-    full: "₹55",
+    ml500: "₹50",
+    ml750: "₹75",
+    litre1: "₹100",
   },
   {
     name: "Coffee",
     image: img2,
     desc: "Strong, aromatic coffee crafted to energize your day and lift your mood instantly.",
-    half: "₹35",
-    full: "₹65",
+    ml500: "₹60",
+    ml750: "₹90",
+    litre1: "₹120",
   },
   {
     name: "Cardamom Tea",
     image: img6,
     desc: "Smooth tea infused with fragrant cardamom for a soothing and flavorful experience.",
-    half: "₹40",
-    full: "₹75",
+    ml500: "₹50",
+    ml750: "₹75",
+    litre1: "₹100",
   },
   {
     name: "Ginger Tea",
     image: img5,
     desc: "A refreshing ginger-infused tea with a spicy warmth that awakens your senses.",
-    half: "₹40",
-    full: "₹75",
+    ml500: "₹50",
+    ml750: "₹75",
+    litre1: "₹100",
   },
   {
     name: "Boost",
     image: img7,
     desc: "An energy-packed drink that keeps you active and refreshed throughout the day.",
-    half: "₹50",
-    full: "₹90",
+    ml500: "₹60",
+    ml750: "₹90",
+    litre1: "₹120",
   },
   {
     name: "Horlicks",
     image: img8,
     desc: "A nourishing malt drink that offers strength, comfort, and great taste.",
-    half: "₹50",
-    full: "₹90",
+    ml500: "₹60",
+    ml750: "₹90",
+    litre1: "₹120",
   },
   {
     name: "Lemon Tea",
     image: img9,
     desc: "A light and refreshing lemon-flavored tea, perfect for a calming break.",
-    half: "₹35",
-    full: "₹65",
+    ml500: "₹50",
+    ml750: "₹75",
+    litre1: "₹100",
+  },
+  {
+    name: "Instant Coffee",
+    image: img10,
+    desc: "A quick, smooth cup of coffee ready in seconds.",
+    ml500: "₹60",
+    ml750: "₹90",
+    litre1: "₹120",
+  },
+  {
+    name: "Filter Coffee",
+    image: img11,
+    desc: "Traditional, strong, and aromatic coffee brewed the classic way.",
+    ml500: "₹60",
+    ml750: "₹90",
+    litre1: "₹120",
+  },
+  {
+    name: "Turmeric Pepper Milk",
+    image: img12,
+    desc: "Warm, soothing milk infused with turmeric and black pepper for wellness.",
+    ml500: "₹60",
+    ml750: "₹90",
+    litre1: "₹120",
+  },
+  {
+    name: "Masala Milk",
+    image: img13,
+    desc: "Creamy milk blended with aromatic spices for a rich, flavorful treat.",
+    ml500: "₹60",
+    ml750: "₹90",
+    litre1: "₹120",
+    center: true, // 👈 IMPORTANT
   },
 ];
+
 
 const Products = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -147,7 +194,7 @@ const Products = () => {
             return (
               <div
                 key={index}
-                className="tp-product-card"
+                className={`tp-product-card ${item.center ? "center-card" : ""}`}
                 onClick={() => setActiveIndex(index)}
               >
                 {/* 🔥 Top Ordered Badge */}
@@ -171,7 +218,7 @@ const Products = () => {
                       alt="Flask measurement"
                       className="tp-flask-img"
                     />
-                    ½ Litre / 1 Litre Flask
+                    500 ML / 750 ML / 1 Litre
                   </p>
 
                   <p className="tp-product-sugar">
@@ -187,8 +234,9 @@ const Products = () => {
                 {/* Price Popup */}
                 {activeIndex === index && (
                   <div className="tp-price-popup-slide">
-                    <span>½ Litre : {item.half}</span>|
-                    <span>1 Litre : {item.full}</span>
+                    <span>500 ML : {item.ml500}</span> |
+                    <span>750 ML : {item.ml750}</span> |
+                    <span>1 Litre : {item.litre1}</span>
                   </div>
                 )}
               </div>

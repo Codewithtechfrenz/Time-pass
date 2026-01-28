@@ -1,35 +1,26 @@
-/* ==================================================
-   CONTACT PAGE – BASE STYLES (DESKTOP DEFAULT)
-================================================== */
-
+/* ===================== BASE ===================== */
 .tp-contact-page {
   scroll-behavior: smooth;
   background-color: #f9f9f9;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* ==================================================
-   HERO SECTION
-================================================== */
-
+/* ================= HERO ================= */
 .tp-contact-hero {
   width: 100%;
-  min-height: 1000px;
+  min-height: 800px; /* Large screens */
   background-image: url("../Image/contact-bg.png");
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-
-  color: #ffffff;
+  color: #fff;
   text-align: center;
+  padding: 60px 20px;
 }
 
-/* Hero animation */
 .tp-animate-hero {
   opacity: 0;
   transform: scale(1.05);
@@ -41,12 +32,9 @@
   transform: scale(1);
 }
 
-/* ==================================================
-   CONTACT CARDS
-================================================== */
-
+/* ================= CONTACT CARDS ================= */
 .tp-contact-cards {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 60px auto;
   padding: 0 20px;
   display: grid;
@@ -55,17 +43,15 @@
 }
 
 .tp-contact-card {
-  background: #ffffff;
+  position: relative;
+  background: #fff;
   padding: 40px 25px;
   text-align: center;
   border-radius: 16px;
-  position: relative;
   overflow: hidden;
-
   opacity: 0;
   transform: translateY(40px) scale(0.95);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-
+  transition: opacity 0.8s ease, transform 0.8s ease, box-shadow 0.3s ease;
   box-shadow: 0 8px 20px rgba(0,0,0,0.08);
 }
 
@@ -74,12 +60,7 @@
   transform: translateY(0) scale(1);
 }
 
-/* Stagger */
-.tp-contact-card:nth-child(1) { transition-delay: 0.15s; }
-.tp-contact-card:nth-child(2) { transition-delay: 0.3s; }
-.tp-contact-card:nth-child(3) { transition-delay: 0.45s; }
-
-/* Gradient border */
+/* Top gradient */
 .tp-contact-card::before {
   content: "";
   position: absolute;
@@ -87,16 +68,16 @@
   left: 0;
   height: 5px;
   width: 100%;
-  background: linear-gradient(90deg, #A0522D, #D2691E, #CD853F);
+  background: linear-gradient(90deg, #f4b400, #d2b48c);
 }
 
 /* Hover */
 .tp-contact-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 16px 35px rgba(160,82,45,0.25);
+  box-shadow: 0 16px 35px rgba(160, 82, 45, 0.25);
 }
 
-/* Icon */
+/* Icons */
 .tp-contact-icon {
   width: 72px;
   height: 72px;
@@ -115,15 +96,15 @@
 
 /* Icon colors */
 .tp-contact-card:nth-child(1) .tp-contact-icon {
-  color: #A0522D;
+  color: #f4b400;
   background: rgba(160,82,45,0.15);
 }
 .tp-contact-card:nth-child(2) .tp-contact-icon {
-  color: #D2691E;
+  color: #f4b400;
   background: rgba(210,105,30,0.15);
 }
 .tp-contact-card:nth-child(3) .tp-contact-icon {
-  color: #CD853F;
+  color: #f4b400;
   background: rgba(205,133,63,0.15);
 }
 
@@ -133,23 +114,21 @@
   margin-bottom: 10px;
   font-weight: 600;
 }
-
 .tp-contact-card p {
   font-size: 16px;
   line-height: 1.6;
   color: #555;
 }
 
-/* CTA link */
+/* Links */
 .tp-contact-card a {
   display: inline-block;
   margin-top: 12px;
-  color: #A0522D;
+  color: #f4b400;
   font-weight: 600;
   text-decoration: none;
   position: relative;
 }
-
 .tp-contact-card a::after {
   content: "";
   position: absolute;
@@ -160,15 +139,11 @@
   background: currentColor;
   transition: width 0.3s ease;
 }
-
 .tp-contact-card a:hover::after {
   width: 100%;
 }
 
-/* ==================================================
-   CONTACT FORM
-================================================== */
-
+/* ================= CONTACT FORM ================= */
 .tp-contact-form-wrapper {
   max-width: 600px;
   margin: 60px auto;
@@ -183,7 +158,7 @@
 }
 
 .tp-contact-form {
-  background: #ffffff;
+  background: #fff;
   padding: 35px 25px;
   border-radius: 15px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.08);
@@ -200,27 +175,27 @@
   border-radius: 8px;
   outline: none;
 }
-
 .tp-contact-form input:focus,
 .tp-contact-form textarea:focus {
   border-color: #ff6a00;
 }
-
-/* Button */
 .tp-contact-form button {
   padding: 14px;
   font-size: 16px;
   font-weight: 600;
-  color: #ffffff;
+  color: #fff;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  background: linear-gradient(135deg, #8B4513, #D2B48C);
-  transition: transform 0.3s ease;
+  background: linear-gradient(135deg, #f4b400, #D2B48C);
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
-
 .tp-contact-form button:hover {
   transform: scale(1.05);
+}
+.tp-contact-form button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
 }
 
 /* Form animation */
@@ -229,117 +204,155 @@
   transform: translateY(60px);
   transition: opacity 0.9s ease, transform 0.9s ease;
 }
-
 .tp-animate-form.show {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* ==================================================
-   GOOGLE MAP
-================================================== */
+/* Rating stars */
+.tp-rating {
+  margin: 18px 0 10px;
+  text-align: center;
+}
+.stars {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.star {
+  font-size: 26px;
+  color: #d3d3d3;
+  cursor: pointer;
+  transition: color 0.25s ease, transform 0.2s ease;
+}
+.star:hover {
+  transform: scale(1.25);
+}
+.star.active {
+  color: #f5b301;
+}
 
-.tp-contact-map {
+/* Success message */
+.tp-form-success {
+  margin-top: 20px;
+  padding: 20px;
+  background: #e8fff1;
+  border-radius: 14px;
+  text-align: center;
+  color: #1e7f4f;
+}
+
+/* ================= GOOGLE MAP ================= */
+.tp-contact-map.tp-animate-map {
   margin: 60px auto;
   max-width: 1100px;
   height: 400px;
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-}
 
-.tp-animate-map {
   opacity: 0;
   transform: scale(0.95);
   transition: opacity 1s ease, transform 1s ease;
 }
 
-.tp-animate-map.show {
+.tp-contact-map.tp-animate-map.show {
   opacity: 1;
   transform: scale(1);
 }
-
-/* ==================================================
-   LAPTOP (769px – 1200px)
-================================================== */
-
-@media (max-width: 1200px) {
-  .tp-contact-cards {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .tp-contact-hero {
-    min-height: 800px;
-  }
+.tp-contact-map.tp-animate-map iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
-/* ==================================================
-   TABLET (481px – 768px)
-================================================== */
+/* ================= RESPONSIVE ================= */
 
-@media (max-width: 768px) {
+/* Large Desktop (1200px - 1600px) */
+@media (min-width: 1200px) and (max-width: 1600px) {
+  .tp-contact-hero { min-height: 900px; }
+  .tp-contact-cards { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Desktop / Laptop (992px - 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .tp-contact-hero { min-height: 800px; }
+  .tp-contact-cards { grid-template-columns: repeat(1, 1fr); gap: 25px; }
+}
+
+/* Tablet (768px - 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .tp-contact-hero { min-height: 650px; padding: 50px 25px; }
+  .tp-contact-cards { grid-template-columns: 1fr; gap: 20px; }
+  .tp-contact-map.tp-animate-map { height: 350px; }
+}
+
+/* =======================
+   MOBILE RESPONSIVE (480px – 767px)
+======================= */
+@media (min-width: 480px) and (max-width: 767px) {
+
+  /* Hero section */
   .tp-contact-hero {
-    min-height: 550px;
-    padding: 50px 25px;
+    min-height: 450px;        /* Smaller height for mobile */
+    padding: 40px 20px;       /* Less padding */
+    background-size: cover;   /* Ensure image covers area */
+    background-position: center;
   }
 
+  /* Contact cards – one per row */
   .tp-contact-cards {
-    grid-template-columns: 1fr;
-    gap: 25px;
+    grid-template-columns: 1fr; /* Full width cards */
+    gap: 20px;
   }
 
-  .tp-contact-map {
+  /* Contact form */
+  .tp-contact-form {
+    padding: 25px 20px;
+  }
+
+  /* Stars */
+  .star {
+    font-size: 24px;
+  }
+
+  /* Google Map */
+  .tp-contact-map.tp-animate-map {
     height: 300px;
   }
-
-  .tp-contact-form-wrapper h2 {
-    font-size: 24px;
-  }
 }
 
-/* ==================================================
-   MOBILE (≤ 480px)
-================================================== */
+/* =======================
+   EXTRA SMALL MOBILE (<480px)
+======================= */
+@media (max-width: 479px) {
 
-@media (max-width: 480px) {
-
+  /* Hero section */
   .tp-contact-hero {
-    min-height: 400px;
-    padding: 30px 15px;
+    min-height: 350px;        /* Even smaller height */
+    padding: 25px 15px;
+    background-size: cover;
+    background-position: center;
   }
 
+  /* Contact cards – one per row */
   .tp-contact-cards {
-    margin: 40px 15px;
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
 
-  .tp-contact-card {
-    padding: 20px 15px;
-  }
-
-  .tp-contact-icon {
-    width: 50px;
-    height: 50px;
-    font-size: 24px;
-  }
-
-  .tp-contact-card h3 {
-    font-size: 16px;
-  }
-
-  .tp-contact-card p {
-    font-size: 13px;
-  }
-
-  .tp-contact-form-wrapper h2 {
-    font-size: 20px;
-  }
-
+  /* Contact form */
   .tp-contact-form {
     padding: 20px 15px;
   }
 
-  .tp-contact-map {
-    height: 230px;
-    margin: 40px 15px;
+  /* Stars */
+  .star {
+    font-size: 22px;
+  }
+
+  /* Google Map */
+  .tp-contact-map.tp-animate-map {
+    height: 250px;
   }
 }

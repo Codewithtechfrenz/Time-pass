@@ -262,7 +262,15 @@ const About = () => {
         <section className="tp-aboutus-cta">
           <h2>Ready for Your Perfect Cup?</h2>
           <p>Visit us or explore our menu to experience real flavor.</p>
-          <button className="tp-aboutus-cta-btn">Explore Menu</button>
+          <button
+  className="tp-aboutus-cta-btn"
+  onClick={() => {
+    console.log("clicked");
+    window.location.href = "/products";
+  }}
+>
+  <span>Explore Menu</span>
+</button>
         </section><br></br><br></br>
       </main>
 
