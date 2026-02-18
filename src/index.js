@@ -4,9 +4,29 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import disableDevtool from 'disable-devtool';
+
+// Activate protection
 disableDevtool({
-  url: 'https://www.time-pass.in/' // redirect if devtools opened
+  interval: 100,
+  disableMenu: true,
+  clearLog: true,
+  ondevtoolopen: () => {
+    document.body.innerHTML = `
+      <div style="
+        height:100vh;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        font-size:24px;
+        background:black;
+        color:red;">
+        DevTools is not allowed on this website.
+      </div>
+    `;
+  }
 });
+
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
