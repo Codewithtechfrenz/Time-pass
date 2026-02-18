@@ -65,7 +65,7 @@ useEffect(() => {
               <span className="tooltip-text-main">+91 79040 23603</span>
             </div>
 
-            <div className="tooltip-main">
+            {/* <div className="tooltip-main">
   <a
     href="https://mail.google.com/mail/?view=cm&fs=1&to=timepasspkarthick@gmail.com"
     className="icon-text-main"
@@ -80,7 +80,7 @@ useEffect(() => {
   <span className="tooltip-text-main">
     timepasspkarthick@gmail.com
   </span>
-</div>
+</div>  */}
 
 
 
